@@ -53,7 +53,7 @@ func (pq *ParsedQuery) GenerateQuery(bindVariables map[string]*querypb.BindVaria
 	current := 0
 	for _, loc := range pq.bindLocations {
 		buf.WriteString(pq.Query[current:loc.offset])
-		name := pq.Query[loc.offset: loc.offset+loc.length]
+		name := pq.Query[loc.offset : loc.offset+loc.length]
 		if encodable, ok := extras[name[1:]]; ok {
 			encodable.EncodeSQL(buf)
 		} else {

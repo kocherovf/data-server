@@ -30,7 +30,7 @@ import (
 
 // These constants are used to identify the SQL statement type.
 const (
-	StmtSelect   = iota
+	StmtSelect = iota
 	StmtInsert
 	StmtReplace
 	StmtUpdate

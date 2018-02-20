@@ -698,7 +698,7 @@ exponent:
 	}
 
 exit:
-// A letter cannot immediately follow a number.
+	// A letter cannot immediately follow a number.
 	if isLetter(tkn.lastChar) {
 		return LEX_ERROR, buffer.Bytes()
 	}
