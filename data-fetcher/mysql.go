@@ -36,7 +36,7 @@ func (d MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 		}
 
 		// Scan the result into the column pointers...
-		err := rows.Scan(columnPointers...);
+		err := rows.Scan(columnPointers...)
 		checkErr(err)
 
 		// Create our map, and retrieve the value for each column from the pointers slice,
