@@ -270,3 +270,1092 @@
 
 [GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
 [GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [ERROR] listen tcp 0.0.0.0:9030: bind: address already in use
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /                         --> git.itim.vn/coccoc/data-server/handler.(QueryHandler).Handle-fm (3 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:9030

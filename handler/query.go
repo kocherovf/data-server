@@ -1,69 +1,64 @@
 package handler
 
 import (
+	"io/ioutil"
 	"log"
 
+	"git.itim.vn/coccoc/data-server/data-fetcher"
 	"git.itim.vn/coccoc/data-server/sqlparser"
 	"github.com/gin-gonic/gin"
 )
 
-type Query struct {
-	Sql string `bson:"sql,omitempty"json:"sql,omitempty"`
-}
-
 // ListHandler
 type QueryHandler struct {
-	Logger *log.Logger
-}
-
-type SomeVisitor struct {
-	Logger *log.Logger
-}
-
-func (w *SomeVisitor) Visit(node sqlparser.SQLNode) (kontinue bool, err error) {
-	w.Logger.Println(nodeToString(node))
-
-	return true, nil
+	Logger      *log.Logger
+	DataFetcher *datafetcher.UnifiedDataFetcher
 }
 
 // Handle
 func (h QueryHandler) Handle(c *gin.Context) {
 	h.Logger.Println("Test")
 
-	var query Query
-	c.BindJSON(&query)
-	h.Logger.Println(query.Sql)
+	sql, _ := ioutil.ReadAll(c.Request.Body)
 
-	stmt, err := sqlparser.Parse(query.Sql)
+	stmt, err := sqlparser.Parse(string(sql))
 	if err != nil {
 		c.JSON(400, map[string]interface{}{
-			"error":   true,
-			"message": err.Error(),
+			"error": err.Error(),
 		})
+		h.Logger.Println(err.Error())
 		return
 	}
 	switch stmt := stmt.(type) {
-		case *sqlparser.Select:
-
-			for _, selectExpr := range stmt.SelectExprs {
-				h.Logger.Println("select expr - ", nodeToString(selectExpr))
-			}
-			for _, tableExpr := range stmt.From {
-				printTableExpr(tableExpr, h.Logger)
-			}
-			h.Logger.Println("where expr - ", nodeToString(stmt.Where))
-		default:
+	case *sqlparser.Select:
+		printSelect(stmt, h.Logger)
+		dataSet, err := h.DataFetcher.FetchData(string(sql))
+		if err != nil {
 			c.JSON(400, map[string]interface{}{
-				"error":   true,
-				"message": "Only SELECT queries are available",
+				"error": err.Error(),
 			})
 			return
-	}
+		}
 
-	c.JSON(200, map[string]interface{}{
-		"count": 0,
-		"items": "[]",
-	})
+		c.JSON(200, dataSet)
+		h.Logger.Println("OK")
+		return
+	default:
+		c.JSON(400, map[string]interface{}{
+			"error": err.Error(),
+		})
+		h.Logger.Println(err.Error())
+		return
+	}
+}
+func printSelect(stmt *sqlparser.Select, logger *log.Logger) {
+	for _, selectExpr := range stmt.SelectExprs {
+		logger.Println("select expr - ", nodeToString(selectExpr))
+	}
+	for _, tableExpr := range stmt.From {
+		printTableExpr(tableExpr, logger)
+	}
+	logger.Println("where expr - ", nodeToString(stmt.Where))
 }
 
 func nodeToString(node sqlparser.SQLNode) string {
@@ -75,15 +70,32 @@ func nodeToString(node sqlparser.SQLNode) string {
 
 func printTableExpr(tableExpr sqlparser.TableExpr, logger *log.Logger) {
 	switch tableExpr := tableExpr.(type) {
-		case *sqlparser.JoinTableExpr:
-			logger.Println("condition - ", nodeToString(tableExpr.Condition))
-			logger.Println("join - ", tableExpr.Join)
-			printTableExpr(tableExpr.LeftExpr, logger)
-			printTableExpr(tableExpr.RightExpr, logger)
-		case *sqlparser.AliasedTableExpr:
-			logger.Println("as - ", nodeToString(tableExpr.As))
-			logger.Println("simple table expr - ", nodeToString(tableExpr.Expr))
-		default:
-			logger.Println("not join table expr - ", nodeToString(tableExpr))
+	case *sqlparser.JoinTableExpr:
+		logger.Println("condition - ", nodeToString(tableExpr.Condition))
+		logger.Println("join - ", tableExpr.Join)
+		logger.Println("global - ", tableExpr.Global)
+		logger.Println("type - ", tableExpr.Type)
+		printTableExpr(tableExpr.LeftExpr, logger)
+		printTableExpr(tableExpr.RightExpr, logger)
+	case *sqlparser.AliasedTableExpr:
+		logger.Println("as - ", nodeToString(tableExpr.As))
+		printSimpleTableExpr(tableExpr.Expr, logger)
+	default:
+		logger.Println("not join table expr - ", nodeToString(tableExpr))
+	}
+}
+
+func printSimpleTableExpr(tableExpr sqlparser.SimpleTableExpr, logger *log.Logger) {
+	switch tableExpr := tableExpr.(type) {
+	case sqlparser.TableName:
+		logger.Println("table name - ", tableExpr.Name)
+		logger.Println("qualifier - ", tableExpr.Qualifier)
+	case *sqlparser.Subquery:
+		switch selectStmt := tableExpr.Select.(type) {
+		case *sqlparser.Select:
+			printSelect(selectStmt, logger)
+		}
+	default:
+		logger.Println("default simple table expr - ", nodeToString(tableExpr))
 	}
 }

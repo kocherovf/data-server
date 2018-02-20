@@ -2,3 +2,5 @@ package: git.itim.vn/coccoc/data-server
 import:
 - package: github.com/gin-gonic/gin
   version: v1.2
+- package: github.com/go-sql-driver/mysql
+  version: master

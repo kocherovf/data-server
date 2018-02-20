@@ -1,5 +1,5 @@
-hash: 0bdd1a4d47b4d80198c9c0e8e28558c99c1852f889b5b02116827e1b7e2828b7
-updated: 2018-02-06T17:25:28.1327462+07:00
+hash: 338bdc0028ef590f09d1795d7d6ab2f98b87beb2c593381308dff4bb70b1a219
+updated: 2018-02-20T22:57:23.406663969+07:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
@@ -8,6 +8,8 @@ imports:
   subpackages:
   - binding
   - render
+- name: github.com/go-sql-driver/mysql
+  version: fade21009797158e7b79e04c340118a9220c6f9e
 - name: github.com/golang/protobuf
   version: 2402d76f3d41f928c7902a765dfc872356dd3aad
   subpackages:

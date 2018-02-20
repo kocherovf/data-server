@@ -89,6 +89,7 @@ var keywords = map[string]int{
 	"alter":               ALTER,
 	"analyze":             ANALYZE,
 	"and":                 AND,
+	"any":                 ANY,
 	"as":                  AS,
 	"asc":                 ASC,
 	"asensitive":          UNUSED,
@@ -172,6 +173,7 @@ var keywords = map[string]int{
 	"foreign":             UNUSED,
 	"from":                FROM,
 	"fulltext":            UNUSED,
+	"global":              GLOBAL,
 	"generated":           UNUSED,
 	"get":                 UNUSED,
 	"grant":               UNUSED,
@@ -696,7 +698,7 @@ exponent:
 	}
 
 exit:
-	// A letter cannot immediately follow a number.
+// A letter cannot immediately follow a number.
 	if isLetter(tkn.lastChar) {
 		return LEX_ERROR, buffer.Bytes()
 	}
@@ -796,7 +798,7 @@ func (tkn *Tokenizer) scanCommentType2() (int, []byte) {
 	return COMMENT, buffer.Bytes()
 }
 
-func (tkn *Tokenizer) consumeNext(buffer *bytes2.Buffer) {
+func (tkn *Tokenizer) consumeNext(buffer io.ByteWriter) {
 	if tkn.lastChar == eofChar {
 		// This should never happen.
 		panic("unexpected EOF")

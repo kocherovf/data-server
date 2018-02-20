@@ -2,7 +2,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT             CounterID,             hits,             visits         FROM         (             SELECT                 CounterID,                 count() AS hits             FROM test.hits             GROUP BY CounterID         ) ANY LEFT JOIN         (             SELECT                 CounterID,                 sum(Sign) AS visits             FROM test.visits             GROUP BY CounterID         ) USING CounterID         ORDER BY hits DESC         LIMIT 10"}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+<> 2018-02-21T015005.200.json
 
 ###
 
@@ -10,17 +12,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT             CounterID,             hits,             visits         FROM         (             SELECT                 CounterID,                 count() AS hits             FROM test.hits             GROUP BY CounterID         ) ANY LEFT JOIN         (             SELECT                 CounterID,                 sum(Sign) AS visits             FROM test.visits             GROUP BY CounterID         ) USING CounterID         ORDER BY hits DESC         LIMIT 10"}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T110323.400.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT             CounterID,             hits,             visits         FROM         (             SELECT                 CounterID,                 count() AS hits             FROM test.hits             GROUP BY CounterID         ) ANY LEFT JOIN         (             SELECT                 CounterID,                 sum(Sign) AS visits             FROM test.visits             GROUP BY CounterID         ) USING CounterID         ORDER BY hits DESC         LIMIT 10"}
+<> 2018-02-21T014949.200.json
 
 ###
 
@@ -28,7 +22,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT             CounterID,             hits,             visits         FROM         (             SELECT                 CounterID,                 count() AS hits             FROM test.hits             GROUP BY CounterID         ) ANY LEFT JOIN         (             SELECT                 CounterID,                 sum(Sign) AS visits             FROM test.visits             GROUP BY CounterID         ) USING CounterID         ORDER BY hits DESC         LIMIT 10"}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+<> 2018-02-21T014922.200.json
 
 ###
 
@@ -36,19 +32,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT             CounterID,             hits,             visits         FROM         (             SELECT                 CounterID,                 count() AS hits             FROM test.hits             GROUP BY CounterID         ) ANY LEFT JOIN         (             SELECT                 CounterID,                 sum(Sign) AS visits             FROM test.visits             GROUP BY CounterID         ) USING CounterID         ORDER BY hits DESC         LIMIT 10"}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T110107.400.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings, rsr.allow         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         LEFT JOIN Rest.SomeResource rsr ON mst.id=rsr.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC         LIMIT 20; "}
-
-<> 2018-02-07T104858.200.json
+<> 2018-02-21T014848.200.json
 
 ###
 
@@ -56,19 +42,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings, rsr.allow         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         LEFT JOIN Rest.SomeResource rsr ON mst.id=rsr.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC         LIMIT 20; "}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T104711.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings, rsr.allow         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         LEFT JOIN Rest.SomeResource rsr ON mst.id=rsr.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC         LIMIT 20; "}
-
-<> 2018-02-07T104620.200.json
+<> 2018-02-21T014745.200.json
 
 ###
 
@@ -76,9 +52,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings, rsr.allow         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         LEFT JOIN Rest.SomeResource rsr ON mst.id=rsr.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC         LIMIT 20; "}
-
-<> 2018-02-07T104102.200.json
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -86,19 +60,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings, rsr.allow         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         LEFT JOIN Rest.SomeResource rsr ON mst.id=rsr.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC         LIMIT 20; "}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T104035.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T093244.200.json
+<> 2018-02-21T014604.200.json
 
 ###
 
@@ -106,19 +70,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T093037.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092429.200.json
+<> 2018-02-21T014531.200.json
 
 ###
 
@@ -126,9 +80,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092412.200.json
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -136,9 +88,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092351.200.json
+SELECT u.id, u.firstName, u.lastName, u.age, u.mail, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -146,19 +96,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-07T092207.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092155.200.json
+<> 2018-02-21T010502.200.json
 
 ###
 
@@ -166,9 +106,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092148.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -176,9 +114,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT mst.id, mst.firstName, mst.lastName, mst.age, chst.clicks, chst.shows, chst.spendings         FROM MySQL.SomeTable mst         LEFT JOIN ClickHouse.SomeTable chst ON mst.id=chst.user_id         WHERE mst.age > 18         ORDER BY mst.age DESC          LIMIT 20; "}
-
-<> 2018-02-07T092123.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -186,9 +122,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"UPDATE sometable SET a=1 WHERE b=1"}e
-
-<> 2018-02-06T090741.400.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -196,19 +130,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"UPDATE sometable SET a=1 WHERE b=1"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090714.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"UPDATE Table set a=1 WHERE b=1"}
-
-<> 2018-02-06T090647.400.json
+<> 2018-02-20T105752.200.json
 
 ###
 
@@ -216,9 +140,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"UPDATE Table set a=1 WHERE b=1;"}
-
-<> 2018-02-06T090638.400.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -226,19 +148,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"CREATE DATABASE Test;"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090612.400.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"UPDATE someFunct(a) as test,b,c FROM SomeTable"}
-
-<> 2018-02-06T090553.400.json
+<> 2018-02-20T105257.200.json
 
 ###
 
@@ -246,19 +158,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090259.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
-
-<> 2018-02-06T090238.200.json
+<> 2018-02-20T105206.200.json
 
 ###
 
@@ -266,19 +168,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090213.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
-
-<> 2018-02-06T090128.200.json
+<> 2018-02-20T105109.200.json
 
 ###
 
@@ -286,19 +178,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090108.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
-
-<> 2018-02-06T090105.200.json
+<> 2018-02-20T105029.200.json
 
 ###
 
@@ -306,19 +188,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T090053.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT someFunct(a) as test,b,c FROM SomeTable"}
-
-<> 2018-02-06T075136.200.json
+<> 2018-02-20T103729.200.json
 
 ###
 
@@ -326,9 +198,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT a,b,c FROM SomeTable"}
-
-<> 2018-02-06T075103.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -336,19 +206,9 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT a,b,c FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T074826.200.json
-
-###
-
-POST http://localhost:9030
-Accept: */*
-Cache-Control: no-cache
-
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T074745.200.json
+<> 2018-02-20T102801.200.json
 
 ###
 
@@ -356,9 +216,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T074500.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -366,9 +224,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T064608.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -376,9 +232,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T064549.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -386,7 +240,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -394,9 +248,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T064433.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -404,7 +256,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -412,9 +264,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T064355.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -422,9 +272,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T064346.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -432,7 +280,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -440,7 +288,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -448,9 +296,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
-
-<> 2018-02-06T063947.200.json
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -458,7 +304,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -466,7 +312,7 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
 ###
 
@@ -474,9 +320,113 @@ POST http://localhost:9030
 Accept: */*
 Cache-Control: no-cache
 
-{"sql":"SELECT * FROM SomeTable"}
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
 
-<> 2018-02-06T062738.200.json
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+ SELECT u.id, u.firstName, u.lastName, s.shows, s.clicks, s.spendings, a.amount, a.name FROM mysql.Users u LEFT JOIN mysql.Stat s ON u.id=s.user_id LEFT JOIN mysql2.Amounts a ON u.firstName=a.name WHERE age > 18
+
+###
+
+POST http://localhost:9030
+Accept: */*
+Cache-Control: no-cache
+
+SELECT t.a, t.b, t.c, t2.a2, t2.b2, t3.a3, t3.b3 FROM mysql.SomeTable t LEFT JOIN mysql.SomeOtherTable t2 ON t.a=t2.a2 LEFT JOIN mysql2.SomeOtherTable t3 ON t2.firstName=t3.name WHERE t.a < 20 and t2.b2 IN ("str", "str2")
+
+<> 2018-02-20T030325.200.json
 
 ###
 

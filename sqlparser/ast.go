@@ -1039,7 +1039,7 @@ type LengthScaleOption struct {
 type ColumnKeyOption int
 
 const (
-	colKeyNone ColumnKeyOption = iota
+	colKeyNone      ColumnKeyOption = iota
 	colKeyPrimary
 	colKeyUnique
 	colKeyUniqueKey
@@ -1462,16 +1462,8 @@ func (node JoinCondition) WalkSubtree(visit Visit) error {
 // JoinTableExpr represents a TableExpr that's a JOIN operation.
 type JoinTableExpr struct {
 	LeftExpr  TableExpr
-	Join      string
-	RightExpr TableExpr
-	Condition JoinCondition
-}
-
-// ClickHouseJoinTableExpr represents a TableExpr that's a JOIN operation.
-type ClickHouseJoinTableExpr struct {
-	Global	  bool
-	Type	  string
-	LeftExpr  TableExpr
+	Global    BoolVal // clickhouse global
+	Type      string  // clickhouse type
 	Join      string
 	RightExpr TableExpr
 	Condition JoinCondition
@@ -1488,15 +1480,23 @@ const (
 	NaturalRightJoinStr = "natural right join"
 )
 
-// Select.Lock
+// JoinTableExpr.Type
 const (
-	AnyStr = "any"
-	AllStr = "all"
+	AllTypeStr = "all"
+	AnyTypeStr = "any"
 )
 
 // Format formats the node.
 func (node *JoinTableExpr) Format(buf *TrackedBuffer) {
-	buf.Myprintf("%v %s %v%v", node.LeftExpr, node.Join, node.RightExpr, node.Condition)
+	var globalStr string
+	if node.Global {
+		globalStr = "global "
+	}
+	var typeStr string
+	if node.Type != "" {
+		typeStr = node.Type + " "
+	}
+	buf.Myprintf("%v %s%s%s %v%v", node.LeftExpr, globalStr, typeStr, node.Join, node.RightExpr, node.Condition)
 }
 
 // WalkSubtree walks the nodes of the subtree.
@@ -1890,7 +1890,7 @@ type ValType int
 // be interpreted differently depending on the
 // context.
 const (
-	StrVal = ValType(iota)
+	StrVal   = ValType(iota)
 	IntVal
 	FloatVal
 	HexNum

@@ -1,11 +1,13 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"os"
 
 	"git.itim.vn/coccoc/data-server/handler"
 	"github.com/gin-gonic/gin"
+	"git.itim.vn/coccoc/data-server/data-fetcher"
 )
 
 type App struct {
@@ -32,6 +34,29 @@ func (a *App) Build() {
 
 	logger := log.New(logFile, "", log.Lshortfile)
 
+	dataFetchers := map[string]datafetcher.DataFetcher{}
+
+	db1, err := sql.Open("mysql", "root:root@/Test1")
+	if err != nil {
+		log.Fatal(err)
+		panic(err)
+	}
+	db2, err := sql.Open("mysql", "root:root@/Test2")
+	if err != nil {
+		log.Fatal(err)
+		panic(err)
+	}
+	dataFetchers["mysql"] = datafetcher.MySQLDataFetcher{
+		Connection: db1,
+	}
+	dataFetchers["mysql2"] = datafetcher.MySQLDataFetcher{
+		Connection: db2,
+	}
+	aggregatingDataFetcher := &datafetcher.UnifiedDataFetcher{
+		Logger: logger,
+		DataFetchers: dataFetchers,
+
+	}
 	// Mongodb collections
 	//campaignCollection := DB.C("Campaigns")
 
@@ -62,6 +87,7 @@ func (a *App) Build() {
 	{
 		a.queryHandler = handler.QueryHandler{
 			Logger: logger,
+			DataFetcher: aggregatingDataFetcher,
 		}
 		//a.campaignListHandler = handler.ListHandler{
 		//	Aggregator:   campaignAggregator,

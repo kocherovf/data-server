@@ -108,13 +108,12 @@ func forceEOF(yylex interface{}) {
 %token LEX_ERROR
 %left <bytes> UNION
 %token <bytes> SELECT INSERT UPDATE DELETE FROM WHERE GROUP HAVING ORDER BY LIMIT OFFSET FOR
-%token <bytes> ALL DISTINCT AS EXISTS ASC DESC INTO DUPLICATE KEY DEFAULT SET LOCK
+%token <bytes> ALL DISTINCT AS EXISTS ASC DESC INTO DUPLICATE KEY DEFAULT SET LOCK GLOBAL ANY
 %token <bytes> VALUES LAST_INSERT_ID
 %token <bytes> NEXT VALUE SHARE MODE
 %token <bytes> SQL_NO_CACHE SQL_CACHE
 %left <bytes> JOIN STRAIGHT_JOIN LEFT RIGHT INNER OUTER CROSS NATURAL USE FORCE
 %left <bytes> ON USING
-%left <bytes> GLOBAL ANY
 %token <empty> '(' ',' ')'
 %token <bytes> ID HEX STRING INTEGRAL FLOAT HEXNUM VALUE_ARG LIST_ARG COMMENT COMMENT_KEYWORD BIT_LITERAL
 %token <bytes> NULL TRUE FALSE
@@ -267,7 +266,7 @@ func forceEOF(yylex interface{}) {
 %type <partDef> partition_definition
 %type <partSpec> partition_operation
 %type <boolVal> global_opt
-%type <str> type_opt
+%type <str> join_type_opt
 
 %start any_command
 
@@ -1275,20 +1274,17 @@ join_table:
   {
     $$ = &JoinTableExpr{LeftExpr: $1, Join: $2, RightExpr: $3, Condition: $4}
   }
-| table_reference outer_join table_reference join_condition
+| table_reference global_opt join_type_opt outer_join table_reference join_condition
   {
-    $$ = &JoinTableExpr{LeftExpr: $1, Join: $2, RightExpr: $3, Condition: $4}
+    $$ = &JoinTableExpr{LeftExpr: $1, Global: $2, Type: $3, Join: $4, RightExpr: $5, Condition: $6}
   }
 | table_reference natural_join table_factor
   {
     $$ = &JoinTableExpr{LeftExpr: $1, Join: $2, RightExpr: $3}
   }
-| table_reference global_opt type_opt outer_join table_reference join_condition
-  {
-    $$ = &ClickHouseJoinTableExpr{LeftExpr: $1, Global: $2, Type: $3, Join: $4, RightExpr: $5, Condition: $6}
-  }
 
 global_opt:
+  /* empty */
   {
     $$ = BoolVal(false)
   }
@@ -1297,17 +1293,18 @@ global_opt:
     $$ = BoolVal(true)
   }
 
-type_opt:
+join_type_opt:
+  /* empty */
   {
     $$ = ""
   }
-| ANY
-  {
-    $$ = AnyStr
-  }
 | ALL
   {
-    $$ = AllStr
+    $$ = AllTypeStr
+  }
+| ANY
+  {
+    $$ = AnyTypeStr
   }
 
 join_condition:
@@ -2419,6 +2416,7 @@ reserved_table_id:
 */
 reserved_keyword:
   AND
+| ANY
 | AS
 | ASC
 | AUTO_INCREMENT
@@ -2451,6 +2449,7 @@ reserved_keyword:
 | FOR
 | FORCE
 | FROM
+| GLOBAL
 | GROUP
 | HAVING
 | IF
