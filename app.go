@@ -5,9 +5,9 @@ import (
 	"log"
 	"os"
 
-	"git.itim.vn/coccoc/data-server/handler"
+	"github.com/kocherovf/data-server/handler"
 	"github.com/gin-gonic/gin"
-	"git.itim.vn/coccoc/data-server/data-fetcher"
+	"github.com/kocherovf/data-server/data-fetcher"
 )
 
 type App struct {

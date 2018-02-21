@@ -19,7 +19,7 @@ package sqlparser
 import (
 	"bytes"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 // This file contains types that are 'Encodable'.

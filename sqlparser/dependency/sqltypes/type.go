@@ -19,7 +19,7 @@ package sqltypes
 import (
 	"fmt"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 // This file provides wrappers and support

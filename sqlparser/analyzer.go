@@ -25,7 +25,7 @@ import (
 	"strings"
 	"unicode"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 // These constants are used to identify the SQL statement type.

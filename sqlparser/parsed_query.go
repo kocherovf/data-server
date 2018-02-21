@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 // ParsedQuery represents a parsed query where

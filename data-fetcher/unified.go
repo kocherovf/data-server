@@ -1,12 +1,11 @@
 package datafetcher
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"strings"
 
-	"git.itim.vn/coccoc/data-server/sqlparser"
+	"github.com/kocherovf/data-server/sqlparser"
 )
 
 type UnifiedDataFetcher struct {

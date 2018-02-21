@@ -4,8 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"git.itim.vn/coccoc/data-server/data-fetcher"
-	"git.itim.vn/coccoc/data-server/sqlparser"
+	"github.com/kocherovf/data-server/sqlparser"
 	"github.com/gin-gonic/gin"
 )
 

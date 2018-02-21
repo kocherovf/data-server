@@ -1,9 +1,10 @@
 package datafetcher
 
 import (
+	"errors"
 	"strings"
 
-	"git.itim.vn/coccoc/data-server/sqlparser"
+	"github.com/kocherovf/data-server/sqlparser"
 )
 
 func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, join Join) sqlparser.SelectStatement {

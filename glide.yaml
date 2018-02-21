@@ -1,4 +1,4 @@
-package: git.itim.vn/coccoc/data-server
+package: github.com/kocherovf/data-server
 import:
 - package: github.com/gin-gonic/gin
   version: v1.2

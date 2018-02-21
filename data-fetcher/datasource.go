@@ -1,6 +1,10 @@
 package datafetcher
 
-import "git.itim.vn/coccoc/data-server/sqlparser"
+import (
+	"errors"
+
+	"github.com/kocherovf/data-server/sqlparser"
+)
 
 func getUsedDataSources(node sqlparser.SQLNode) ([]string, error) {
 	var usedTables []Table

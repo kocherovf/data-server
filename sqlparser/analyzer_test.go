@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 func TestPreview(t *testing.T) {

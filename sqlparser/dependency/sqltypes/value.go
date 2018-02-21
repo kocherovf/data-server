@@ -23,10 +23,10 @@ import (
 	"fmt"
 	"strconv"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/bytes2"
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/hack"
+	"github.com/kocherovf/data-server/sqlparser/dependency/bytes2"
+	"github.com/kocherovf/data-server/sqlparser/dependency/hack"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 var (

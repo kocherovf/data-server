@@ -21,7 +21,7 @@ import (
 	"errors"
 	"fmt"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 // PlanValue represents a value or a list of values for

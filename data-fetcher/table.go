@@ -1,6 +1,6 @@
 package datafetcher
 
-import "git.itim.vn/coccoc/data-server/sqlparser"
+import "github.com/kocherovf/data-server/sqlparser"
 
 type Table struct {
 	Name      string

@@ -19,7 +19,7 @@ package sqltypes
 import (
 	"testing"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 func TestTypeValues(t *testing.T) {

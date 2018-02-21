@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"io"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/bytes2"
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/bytes2"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 const (

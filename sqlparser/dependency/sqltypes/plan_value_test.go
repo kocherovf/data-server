@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 func TestPlanValueIsNull(t *testing.T) {

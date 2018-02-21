@@ -23,7 +23,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 func TestAppend(t *testing.T) {

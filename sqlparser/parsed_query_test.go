@@ -20,9 +20,9 @@ import (
 	"reflect"
 	"testing"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
 )
 
 func TestNewParsedQuery(t *testing.T) {

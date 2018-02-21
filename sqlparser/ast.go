@@ -25,8 +25,8 @@ import (
 	"log"
 	"strings"
 
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/querypb"
-	"git.itim.vn/coccoc/data-server/sqlparser/dependency/sqltypes"
+	"github.com/kocherovf/data-server/sqlparser/dependency/querypb"
+	"github.com/kocherovf/data-server/sqlparser/dependency/sqltypes"
 )
 
 // Instructions for creating new types: If a type
