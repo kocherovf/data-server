@@ -728,7 +728,7 @@ func (tkn *Tokenizer) scanString(delim uint16, typ int) (int, []byte) {
 			}
 
 			buffer.Write(tkn.buf[start:tkn.bufPos])
-			tkn.Position += (tkn.bufPos - start)
+			tkn.Position += tkn.bufPos - start
 
 			if tkn.bufPos >= tkn.bufSize {
 				// Reached the end of the buffer without finding a delim or

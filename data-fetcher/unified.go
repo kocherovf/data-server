@@ -3,7 +3,6 @@ package datafetcher
 import (
 	"fmt"
 	"log"
-	"strings"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
@@ -66,7 +65,7 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	}
 
 	joinAmount := len(usedDataSources) - 1
-	channel := make(chan Join, joinAmount)
+	channel := make(chan JoinResult, joinAmount)
 
 	for _, dataSource := range usedDataSources {
 		if dataSource == mainDataSource {
@@ -82,12 +81,21 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	}
 
 	counter := 0
-	for receivedJoin := range channel {
-		for _, joinRow := range receivedJoin.DataSet {
+	for joinResult := range channel {
+		if joinResult.Error != nil {
+			return nil, err
+		}
+		for _, joinRow := range joinResult.DataSet {
+			joinsCount := len(joinResult.Joins)
 			for _, mainRow := range dataSet {
-				left := strings.Split(receivedJoin.Left, ".")
-				right := strings.Split(receivedJoin.Right, ".")
-				if mainRow[left[1]] != joinRow[right[1]] {
+				equalFields := 0
+				for _, join := range joinResult.Joins {
+					if mainRow[join.Left.Qualifier] != joinRow[join.Right.Qualifier] {
+						continue
+					}
+					equalFields += 1
+				}
+				if (joinsCount != equalFields) {
 					continue
 				}
 				for key, value := range joinRow {
@@ -105,7 +113,7 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	return dataSet, nil
 }
 
-func (a UnifiedDataFetcher) getDataFetcherByName(name string) (DataFetcher, error) {
+func (a *UnifiedDataFetcher) getDataFetcherByName(name string) (DataFetcher, error) {
 	mainDataFetcher, exists := a.DataFetchers[name]
 	if exists != true {
 		return nil, fmt.Errorf("no fetcher[%s] was found", name)

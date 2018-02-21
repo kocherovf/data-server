@@ -4,8 +4,9 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/kocherovf/data-server/sqlparser"
 	"github.com/gin-gonic/gin"
+	"github.com/kocherovf/data-server/data-fetcher"
+	"github.com/kocherovf/data-server/sqlparser"
 )
 
 // ListHandler

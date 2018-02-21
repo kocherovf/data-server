@@ -2,12 +2,6 @@ package datafetcher
 
 import "github.com/kocherovf/data-server/sqlparser"
 
-type Table struct {
-	Name      string
-	Qualifier string
-	Alias     string
-}
-
 func getUsedTables(node sqlparser.SQLNode, usedTables []Table) ([]Table, error) {
 	var err error
 	switch node := node.(type) {

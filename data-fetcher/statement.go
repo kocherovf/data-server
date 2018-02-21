@@ -2,31 +2,30 @@ package datafetcher
 
 import (
 	"errors"
-	"strings"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
 
-func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, join Join) sqlparser.SelectStatement {
+func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinResult JoinResult) sqlparser.SelectStatement {
 	values := sqlparser.ValTuple{}
 	for _, row := range data {
-		left := strings.Split(join.Left, ".")
+		left := joinResult.Joins[0].Left
 		var leftStr string
-		switch typedLeft := row[left[1]].(type) {
+		switch typedLeft := row[left.Qualifier].(type) {
 		case string:
 			leftStr = typedLeft
 		}
 		values = append(values, sqlparser.NewStrVal([]byte(leftStr)))
 	}
-	right := strings.Split(join.Right, ".")
+	right := joinResult.Joins[0].Right
 	where := sqlparser.Where{
 		Type: sqlparser.WhereStr,
 		Expr: &sqlparser.ComparisonExpr{
 			Operator: sqlparser.InStr,
 			Left: &sqlparser.ColName{
-				Name: sqlparser.NewColIdent(right[1]),
+				Name: sqlparser.NewColIdent(right.Qualifier),
 				Qualifier: sqlparser.TableName{
-					Name: sqlparser.NewTableIdent(right[0]),
+					Name: sqlparser.NewTableIdent(right.Name),
 				},
 			},
 			Right: values,
@@ -309,7 +308,7 @@ BuildTableExpr:
 	return clearedSelectStmt.(sqlparser.SelectStatement), nil
 }
 
-func getJoinStatementByDataSource(stmt *sqlparser.Select, dataSource string) (sqlparser.SelectStatement, Join, error) {
+func getJoinStatementByDataSource(stmt *sqlparser.Select, dataSource string) (sqlparser.SelectStatement, JoinResult, error) {
 	// get TableExpr[s] for data source
 	// get SelectExpr by table aliases
 	// add Where, OrderBy, Limit
@@ -318,7 +317,7 @@ func getJoinStatementByDataSource(stmt *sqlparser.Select, dataSource string) (sq
 
 	var selectStmt sqlparser.SelectStatement
 	selectStmt = &sqlparser.Select{}
-	join := Join{}
+	joinResult := JoinResult{}
 	var usedDataSources []string
 	tableAliases := map[string]bool{}
 	var newTableExpr sqlparser.TableExpr
@@ -330,10 +329,10 @@ BuildTableExpr:
 		case *sqlparser.JoinTableExpr:
 			usedDataSources, err = getUsedDataSources(typedTableExpr.RightExpr)
 			if err != nil {
-				return selectStmt, join, err
+				return selectStmt, joinResult, err
 			}
 			if len(usedDataSources) != 1 {
-				return selectStmt, join, errors.New("join right expression contains more that one data source")
+				return selectStmt, joinResult, errors.New("joinResult right expression contains more that one data source")
 			}
 			if dataSource == usedDataSources[0] {
 				aliasedTableExpr := typedTableExpr.RightExpr.(*sqlparser.AliasedTableExpr)
@@ -348,7 +347,7 @@ BuildTableExpr:
 			}
 			usedDataSources, err = getUsedDataSources(typedTableExpr.LeftExpr)
 			if err != nil {
-				return selectStmt, join, err
+				return selectStmt, joinResult, err
 			}
 			hasUsage := false
 			for _, usedDataSource := range usedDataSources {
@@ -370,7 +369,7 @@ BuildTableExpr:
 			}
 			_, isAlias := typedTableExpr.LeftExpr.(*sqlparser.AliasedTableExpr)
 			if !isAlias {
-				return selectStmt, join, errors.New("can not get LeftTableExpr type")
+				return selectStmt, joinResult, errors.New("can not get LeftTableExpr type")
 			}
 			aliasedTableExpr := typedTableExpr.LeftExpr.(*sqlparser.AliasedTableExpr)
 			tableAliases[aliasedTableExpr.As.String()] = true
@@ -378,7 +377,7 @@ BuildTableExpr:
 			break BuildTableExpr
 		}
 	}
-	// fix join without left part
+	// fix joinResult without left part
 	_, ok := newTableExpr.(*sqlparser.JoinTableExpr)
 	if ok {
 		if newTableExpr.(*sqlparser.JoinTableExpr).LeftExpr == nil {
@@ -386,8 +385,14 @@ BuildTableExpr:
 			if on == nil {
 				using := newTableExpr.(*sqlparser.JoinTableExpr).Condition.Using
 				column := using[0].String()
-				join.Left = column
-				join.Right = column
+				joinResult.Joins = append(joinResult.Joins, Join{
+					Left: Table{
+						Name: column,
+					},
+					Right: Table{
+						Name: column,
+					},
+				})
 			} else {
 				switch onExpr := on.(type) {
 				case *sqlparser.ComparisonExpr:
@@ -404,12 +409,28 @@ BuildTableExpr:
 						}
 					}
 					if leftIsInTables && !rightIsInTables {
-						join.Left = onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String() + "." + onExpr.Right.(*sqlparser.ColName).Name.String()
-						join.Right = onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String() + "." + onExpr.Left.(*sqlparser.ColName).Name.String()
+						joinResult.Joins = append(joinResult.Joins, Join{
+							Left: Table{
+								Qualifier: onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
+								Name: onExpr.Right.(*sqlparser.ColName).Name.String(),
+							},
+							Right: Table{
+								Qualifier: onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
+								Name: onExpr.Left.(*sqlparser.ColName).Name.String(),
+							},
+						})
 					}
 					if !leftIsInTables && rightIsInTables {
-						join.Left = onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String() + "." + onExpr.Left.(*sqlparser.ColName).Name.String()
-						join.Right = onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String() + "." + onExpr.Right.(*sqlparser.ColName).Name.String()
+						joinResult.Joins = append(joinResult.Joins, Join{
+							Left: Table{
+								Qualifier: onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
+								Name: onExpr.Left.(*sqlparser.ColName).Name.String(),
+							},
+							Right: Table{
+								Qualifier: onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
+								Name: onExpr.Right.(*sqlparser.ColName).Name.String(),
+							},
+						})
 					}
 				}
 			}
@@ -419,7 +440,7 @@ BuildTableExpr:
 
 	selectExprs, err := getSelectExprsByTableAliases(stmt.SelectExprs, tableAliases)
 	if err != nil {
-		return selectStmt, join, nil
+		return selectStmt, joinResult, nil
 	}
 
 	selectStmt.(*sqlparser.Select).SelectExprs = selectExprs
@@ -427,8 +448,8 @@ BuildTableExpr:
 
 	clearedSelectStmt, err := clearDataSourceNames(selectStmt)
 	if err != nil {
-		return selectStmt, Join{}, err
+		return selectStmt, JoinResult{}, err
 	}
 
-	return clearedSelectStmt.(sqlparser.SelectStatement), join, nil
+	return clearedSelectStmt.(sqlparser.SelectStatement), joinResult, nil
 }

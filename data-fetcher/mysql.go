@@ -12,7 +12,7 @@ type MySQLDataFetcher struct {
 	Connection *sql.DB
 }
 
-func (d MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
+func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	rows, err := d.Connection.Query(sql)
 	checkErr(err)
 
@@ -31,7 +31,7 @@ func (d MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 		// and a second slice to contain pointers to each item in the columnsSlice slice.
 		columnsSlice := make([]interface{}, len(columns))
 		columnPointers := make([]interface{}, len(columns))
-		for i, _ := range columnsSlice {
+		for i := range columnsSlice {
 			columnPointers[i] = &columnsSlice[i]
 		}
 
@@ -103,16 +103,13 @@ func (d MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	return dataSet, nil
 }
 
-func (d MySQLDataFetcher) FetchJoin(sql string, join Join, channel chan Join) {
+func (d *MySQLDataFetcher) FetchJoin(sql string, join JoinResult, channel chan JoinResult) {
 	dataSet, err := d.FetchData(sql)
-	checkErr(err)
-	join.DataSet = dataSet
+	if err != nil {
+		join.Error = err
+	} else {
+		join.DataSet = dataSet
+	}
 
 	channel <- join
-}
-
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
