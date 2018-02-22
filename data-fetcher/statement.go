@@ -1,8 +1,8 @@
 package datafetcher
 
 import (
-	"encoding/binary"
 	"errors"
+	"strconv"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
@@ -21,11 +21,8 @@ func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinRes
 			case string:
 				value = sqlparser.NewStrVal([]byte(typedLeft))
 			case int:
-				var i int16 = 41
-				err := binary.Write(w, binary.LittleEndian, i)
-				b := make([]byte, 8)
-				binary.BigEndian.PutUint64(b, uint64(typedLeft))
-				value = sqlparser.NewIntVal(b)
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
 			}
 			values = append(values, value)
 		}
