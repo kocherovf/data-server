@@ -83,14 +83,14 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	counter := 0
 	for joinResult := range channel {
 		if joinResult.Error != nil {
-			return nil, err
+			return nil, joinResult.Error
 		}
 		for _, joinRow := range joinResult.DataSet {
 			joinsCount := len(joinResult.Joins)
 			for _, mainRow := range dataSet {
 				equalFields := 0
 				for _, join := range joinResult.Joins {
-					if mainRow[join.Left.Qualifier] != joinRow[join.Right.Qualifier] {
+					if mainRow[join.Left.Name] != joinRow[join.Right.Name] {
 						continue
 					}
 					equalFields += 1

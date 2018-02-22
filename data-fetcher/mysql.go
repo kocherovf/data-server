@@ -14,12 +14,18 @@ type MySQLDataFetcher struct {
 
 func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	rows, err := d.Connection.Query(sql)
-	checkErr(err)
+	if err != nil {
+		return nil, err
+	}
 
 	columns, err := rows.Columns()
-	checkErr(err)
+	if err != nil {
+		return nil, err
+	}
 	columnTypes, err := rows.ColumnTypes()
-	checkErr(err)
+	if err != nil {
+		return nil, err
+	}
 	columnTypesByName := make(map[string]string)
 	for _, columnType := range columnTypes {
 		columnTypesByName[(*columnType).Name()] = (*columnType).DatabaseTypeName()
@@ -37,7 +43,9 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 
 		// Scan the result into the column pointers...
 		err := rows.Scan(columnPointers...)
-		checkErr(err)
+		if err != nil {
+		return nil, err
+	}
 
 		// Create our map, and retrieve the value for each column from the pointers slice,
 		// storing it in the map with the name of the column as the key.

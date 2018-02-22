@@ -1,35 +1,60 @@
 package datafetcher
 
 import (
+	"encoding/binary"
 	"errors"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
 
 func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinResult JoinResult) sqlparser.SelectStatement {
-	values := sqlparser.ValTuple{}
-	for _, row := range data {
-		left := joinResult.Joins[0].Left
-		var leftStr string
-		switch typedLeft := row[left.Qualifier].(type) {
-		case string:
-			leftStr = typedLeft
+	var expr sqlparser.Expr
+	joinCount := len(joinResult.Joins)
+	handledJoins := 0
+	for _, join := range joinResult.Joins {
+		handledJoins += 1
+		values := sqlparser.ValTuple{}
+		for _, row := range data {
+			left := join.Left
+			var value *sqlparser.SQLVal
+			switch typedLeft := row[left.Name].(type) {
+			case string:
+				value = sqlparser.NewStrVal([]byte(typedLeft))
+			case int:
+				var i int16 = 41
+				err := binary.Write(w, binary.LittleEndian, i)
+				b := make([]byte, 8)
+				binary.BigEndian.PutUint64(b, uint64(typedLeft))
+				value = sqlparser.NewIntVal(b)
+			}
+			values = append(values, value)
 		}
-		values = append(values, sqlparser.NewStrVal([]byte(leftStr)))
-	}
-	right := joinResult.Joins[0].Right
-	where := sqlparser.Where{
-		Type: sqlparser.WhereStr,
-		Expr: &sqlparser.ComparisonExpr{
+		right := join.Right
+		comparisonExpr := &sqlparser.ComparisonExpr{
 			Operator: sqlparser.InStr,
 			Left: &sqlparser.ColName{
-				Name: sqlparser.NewColIdent(right.Qualifier),
+				Name: sqlparser.NewColIdent(right.Name),
 				Qualifier: sqlparser.TableName{
-					Name: sqlparser.NewTableIdent(right.Name),
+					Name: sqlparser.NewTableIdent(right.Qualifier),
 				},
 			},
 			Right: values,
-		},
+		}
+		if joinCount == 1 {
+			expr = comparisonExpr
+			break
+		}
+		if handledJoins != joinCount {
+			expr = &sqlparser.AndExpr{
+				Left: comparisonExpr,
+			}
+			continue
+		}
+		expr.(*sqlparser.AndExpr).Right = comparisonExpr
+	}
+	where := sqlparser.Where{
+		Type: sqlparser.WhereStr,
+		Expr: expr,
 	}
 
 	statement.(*sqlparser.Select).Where = &where
@@ -396,41 +421,20 @@ BuildTableExpr:
 			} else {
 				switch onExpr := on.(type) {
 				case *sqlparser.ComparisonExpr:
-					leftTableAlias := onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String()
-					rightTableAlias := onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String()
-					leftIsInTables := false
-					rightIsInTables := false
-					for tableAlias := range tableAliases {
-						if leftTableAlias == tableAlias {
-							leftIsInTables = true
-						}
-						if rightTableAlias == tableAlias {
-							rightIsInTables = true
-						}
+					join := getJoinFromComparisonExpr(onExpr, tableAliases)
+					if join != (Join{}) {
+						joinResult.Joins = append(joinResult.Joins, join)
 					}
-					if leftIsInTables && !rightIsInTables {
-						joinResult.Joins = append(joinResult.Joins, Join{
-							Left: Table{
-								Qualifier: onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
-								Name: onExpr.Right.(*sqlparser.ColName).Name.String(),
-							},
-							Right: Table{
-								Qualifier: onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
-								Name: onExpr.Left.(*sqlparser.ColName).Name.String(),
-							},
-						})
+				case *sqlparser.AndExpr:
+					exprs := []sqlparser.Expr{
+						onExpr.Left,
+						onExpr.Right,
 					}
-					if !leftIsInTables && rightIsInTables {
-						joinResult.Joins = append(joinResult.Joins, Join{
-							Left: Table{
-								Qualifier: onExpr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
-								Name: onExpr.Left.(*sqlparser.ColName).Name.String(),
-							},
-							Right: Table{
-								Qualifier: onExpr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
-								Name: onExpr.Right.(*sqlparser.ColName).Name.String(),
-							},
-						})
+					for _, expr := range exprs {
+						join := getJoinFromComparisonExpr(expr.(*sqlparser.ComparisonExpr), tableAliases)
+						if join != (Join{}) {
+							joinResult.Joins = append(joinResult.Joins, join)
+						}
 					}
 				}
 			}
@@ -452,4 +456,44 @@ BuildTableExpr:
 	}
 
 	return clearedSelectStmt.(sqlparser.SelectStatement), joinResult, nil
+}
+
+func getJoinFromComparisonExpr(expr *sqlparser.ComparisonExpr, tableAliases map[string]bool) Join {
+	leftTableAlias := expr.Left.(*sqlparser.ColName).Qualifier.Name.String()
+	rightTableAlias := expr.Right.(*sqlparser.ColName).Qualifier.Name.String()
+	leftIsInTables := false
+	rightIsInTables := false
+	for tableAlias := range tableAliases {
+		if leftTableAlias == tableAlias {
+			leftIsInTables = true
+		}
+		if rightTableAlias == tableAlias {
+			rightIsInTables = true
+		}
+	}
+	if leftIsInTables && !rightIsInTables {
+		return Join{
+			Left: Table{
+				Qualifier: expr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
+				Name: expr.Right.(*sqlparser.ColName).Name.String(),
+			},
+			Right: Table{
+				Qualifier: expr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
+				Name: expr.Left.(*sqlparser.ColName).Name.String(),
+			},
+		}
+	}
+	if !leftIsInTables && rightIsInTables {
+		return Join{
+			Left: Table{
+				Qualifier: expr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
+				Name: expr.Left.(*sqlparser.ColName).Name.String(),
+			},
+			Right: Table{
+				Qualifier: expr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
+				Name: expr.Right.(*sqlparser.ColName).Name.String(),
+			},
+		}
+	}
+	return Join{}
 }

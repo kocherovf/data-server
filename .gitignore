@@ -1,5 +1,3 @@
 .idea
 vendor
-Будет удалено sources.example.json
-Будет удалено sources.json
-Будет удалено vendor/github.com/go-sql-driver/
+*.log
