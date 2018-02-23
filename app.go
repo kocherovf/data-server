@@ -46,11 +46,19 @@ func (a *App) Build() {
 		log.Fatal(err)
 		panic(err)
 	}
+	chDb, err := sql.Open("clickhouse", "tcp://127.0.0.1:9000?database=AdsStat")
+	if err != nil {
+		log.Fatal(err)
+		panic(err)
+	}
 	dataFetchers["mysql"] = &datafetcher.MySQLDataFetcher{
 		Connection: db1,
 	}
 	dataFetchers["mysql2"] = &datafetcher.MySQLDataFetcher{
 		Connection: db2,
+	}
+	dataFetchers["clickhouse"] = &datafetcher.ClickHouseDataFetcher{
+		Connection: chDb,
 	}
 	aggregatingDataFetcher := &datafetcher.UnifiedDataFetcher{
 		Logger: logger,

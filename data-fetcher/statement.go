@@ -232,6 +232,36 @@ func isSelectExprInAliases(node sqlparser.SQLNode, tableAliases map[string]bool)
 	}
 }
 
+func getSelectExprsByDataSource(selectExprs sqlparser.SelectExprs, dataSource string) (sqlparser.SelectExprs, error) {
+	var result sqlparser.SelectExprs
+	for _, selectExpr := range selectExprs {
+		usedDataSources, err := getUsedDataSources(selectExpr)
+		if err != nil {
+			return result, err
+		}
+		if len(usedDataSources) > 1 {
+			return result, errors.New("SelectExpr contains more that one data source")
+		}
+		aliasedExpr, isAliased := selectExpr.(*sqlparser.AliasedExpr)
+		if isAliased {
+			_, isSubquery := aliasedExpr.Expr.(*sqlparser.Subquery)
+			if isSubquery {
+				if len(usedDataSources) != 0 {
+					continue
+				}
+				result = append(result, selectExpr)
+			}
+		}
+
+		for _, usedDataSource := range usedDataSources {
+			if usedDataSource == dataSource {
+				result = append(result, selectExpr)
+			}
+		}
+	}
+	return result, nil
+}
+
 func getMainStatementByDataSource(stmt *sqlparser.Select, dataSource string) (sqlparser.SelectStatement, error) {
 	// get TableExpr[s] for data source
 	// get SelectExpr by table aliases
@@ -309,16 +339,21 @@ BuildTableExpr:
 		}
 	}
 
-	selectExprs, err := getSelectExprsByTableAliases(stmt.SelectExprs, tableAliases)
+	var selectExprs sqlparser.SelectExprs
+	filteredSelectExprs, err := getSelectExprsByTableAliases(stmt.SelectExprs, tableAliases)
 	if err != nil {
 		return selectStmt, nil
 	}
+	selectExprs = append(selectExprs, filteredSelectExprs...)
+	if err != nil {
+		return selectStmt, nil
+	}
+	filteredSelectExprs, err = getSelectExprsByDataSource(stmt.SelectExprs, dataSource)
+	selectExprs = append(selectExprs, filteredSelectExprs...)
 
 	selectStmt.(*sqlparser.Select).SelectExprs = selectExprs
 	selectStmt.(*sqlparser.Select).From = sqlparser.TableExprs{newTableExpr}
 	selectStmt.(*sqlparser.Select).Where = stmt.Where
-	selectStmt.(*sqlparser.Select).GroupBy = stmt.GroupBy
-	selectStmt.(*sqlparser.Select).Having = stmt.Having
 	selectStmt.(*sqlparser.Select).OrderBy = stmt.OrderBy
 	selectStmt.(*sqlparser.Select).Limit = stmt.Limit
 
@@ -406,15 +441,17 @@ BuildTableExpr:
 			on := newTableExpr.(*sqlparser.JoinTableExpr).Condition.On
 			if on == nil {
 				using := newTableExpr.(*sqlparser.JoinTableExpr).Condition.Using
-				column := using[0].String()
-				joinResult.Joins = append(joinResult.Joins, Join{
-					Left: Table{
-						Name: column,
-					},
-					Right: Table{
-						Name: column,
-					},
-				})
+				for _, column := range using {
+					columnString := column.String()
+					joinResult.Joins = append(joinResult.Joins, Join{
+						Left: Table{
+							Name: columnString,
+						},
+						Right: Table{
+							Name: columnString,
+						},
+					})
+				}
 			} else {
 				switch onExpr := on.(type) {
 				case *sqlparser.ComparisonExpr:

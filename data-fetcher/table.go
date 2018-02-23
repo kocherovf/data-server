@@ -47,7 +47,7 @@ func getUsedTables(node sqlparser.SQLNode, usedTables []Table) ([]Table, error) 
 	case *sqlparser.AliasedTableExpr:
 		_, ok := node.Expr.(*sqlparser.Subquery)
 		if ok {
-			getUsedTables(node.Expr, usedTables)
+			return getUsedTables(node.Expr, usedTables)
 		}
 		tableName := node.Expr.(sqlparser.TableName)
 		usedTables = append(usedTables, Table{

@@ -3,6 +3,7 @@ package datafetcher
 import (
 	"fmt"
 	"log"
+	"reflect"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
@@ -75,22 +76,26 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 		if err != nil {
 			return nil, err
 		}
-		joinStmt, join, err := getJoinStatementByDataSource(stmt.(*sqlparser.Select), dataSource)
-		joinStmt = attachWhereByJoin(dataSet, joinStmt, join)
-		go joinDataFetcher.FetchJoin(sqlparser.String(joinStmt), join, channel)
+		joinStmt, joinResult, err := getJoinStatementByDataSource(stmt.(*sqlparser.Select), dataSource)
+		joinStmt = attachWhereByJoin(dataSet, joinStmt, joinResult)
+		go joinDataFetcher.FetchJoin(sqlparser.String(joinStmt), joinResult, channel)
 	}
 
 	counter := 0
-	for joinResult := range channel {
-		if joinResult.Error != nil {
-			return nil, joinResult.Error
+	for receivedJoinResult := range channel {
+		if receivedJoinResult.Error != nil {
+			return nil, receivedJoinResult.Error
 		}
-		for _, joinRow := range joinResult.DataSet {
-			joinsCount := len(joinResult.Joins)
+		for _, joinRow := range receivedJoinResult.DataSet {
+			joinsCount := len(receivedJoinResult.Joins)
 			for _, mainRow := range dataSet {
 				equalFields := 0
-				for _, join := range joinResult.Joins {
-					if mainRow[join.Left.Name] != joinRow[join.Right.Name] {
+				for _, join := range receivedJoinResult.Joins {
+					castedLeft := castValue(mainRow[join.Left.Name])
+					castedRight := castValue(joinRow[join.Right.Name])
+					fmt.Println("left - ", reflect.TypeOf(castedLeft))
+					fmt.Println("right - ", reflect.TypeOf(castedRight))
+					if castedLeft != castedRight {
 						continue
 					}
 					equalFields += 1
@@ -111,6 +116,26 @@ func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	}
 
 	return dataSet, nil
+}
+
+func castValue(value interface{}) interface{} {
+	switch typedValue := value.(type) {
+	case int:
+		return int64(typedValue)
+	case int16:
+		return int64(typedValue)
+	case int32:
+		return int64(typedValue)
+	case int64:
+		return int64(typedValue)
+	case float32:
+		return float64(typedValue)
+	case float64:
+		return float64(typedValue)
+	default:
+		return typedValue
+	}
+	return value
 }
 
 func (a *UnifiedDataFetcher) getDataFetcherByName(name string) (DataFetcher, error) {

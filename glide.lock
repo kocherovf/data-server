@@ -1,5 +1,5 @@
-hash: c90cbe53cd7a5a1e332778904a98d9bbfeeb7b2c524ab2c737b01e9df8ade45a
-updated: 2018-02-21T18:44:27.931436101+07:00
+hash: 1f83e994600ca55c426c2c543171d4c4331b28f57bcce7922bc42a74526ac596
+updated: 2018-02-24T02:20:34.867537867+07:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
@@ -14,10 +14,19 @@ imports:
   version: 2402d76f3d41f928c7902a765dfc872356dd3aad
   subpackages:
   - proto
+- name: github.com/kshvakov/clickhouse
+  version: d6c12a41b385709331299da04782a09f8f0eb869
+  subpackages:
+  - lib/binary
+  - lib/column
+  - lib/data
+  - lib/protocol
+  - lib/types
+  - lib/writebuffer
 - name: github.com/mattn/go-isatty
   version: fc9e8d8ef48496124e79ae0df75490096eccf6fe
 - name: github.com/ugorji/go
-  version: b5b949564861e43a03568a0b134c135cf318e5c8
+  version: 9af07b20357a7afd7d5894d25f406c4e07338089
   subpackages:
   - codec
 - name: golang.org/x/sys
@@ -25,7 +34,7 @@ imports:
   subpackages:
   - unix
 - name: google.golang.org/appengine
-  version: 5bee14b453b4c71be47ec1781b0fa61c2ea182db
+  version: 170382fa85b10b94728989dfcf6cc818b335c952
   subpackages:
   - cloudsql
 - name: gopkg.in/go-playground/validator.v8
