@@ -12,6 +12,10 @@ type MySQLDataFetcher struct {
 	Connection *sql.DB
 }
 
+func NewMySQLDataFetcher(connection *sql.DB) *MySQLDataFetcher {
+	return &MySQLDataFetcher{connection}
+}
+
 func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	rows, err := d.Connection.Query(sql)
 	if err != nil {
@@ -109,15 +113,4 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 		dataSet = append(dataSet, m)
 	}
 	return dataSet, nil
-}
-
-func (d *MySQLDataFetcher) FetchJoin(sql string, join JoinResult, channel chan JoinResult) {
-	dataSet, err := d.FetchData(sql)
-	if err != nil {
-		join.Error = err
-	} else {
-		join.DataSet = dataSet
-	}
-
-	channel <- join
 }

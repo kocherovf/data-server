@@ -1,5 +1,5 @@
-hash: 1f83e994600ca55c426c2c543171d4c4331b28f57bcce7922bc42a74526ac596
-updated: 2018-02-24T02:20:34.867537867+07:00
+hash: 1f248ab57e9f2ea90f3857ebf17ec8a2b61b2ef7ddc4ab8a25224dd95201e2bd
+updated: 2018-03-06T01:24:55.579893527+07:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
@@ -9,13 +9,13 @@ imports:
   - binding
   - render
 - name: github.com/go-sql-driver/mysql
-  version: bc14601d1bd56421dd60f561e6052c9ed77f9daf
+  version: 02eb68a684ce8ccb467a8280c5b51232d44643b9
 - name: github.com/golang/protobuf
   version: 2402d76f3d41f928c7902a765dfc872356dd3aad
   subpackages:
   - proto
 - name: github.com/kshvakov/clickhouse
-  version: d6c12a41b385709331299da04782a09f8f0eb869
+  version: 204d1310adca1f03cf10843c403249e1e4bb394b
   subpackages:
   - lib/binary
   - lib/column
@@ -26,7 +26,7 @@ imports:
 - name: github.com/mattn/go-isatty
   version: fc9e8d8ef48496124e79ae0df75490096eccf6fe
 - name: github.com/ugorji/go
-  version: 9af07b20357a7afd7d5894d25f406c4e07338089
+  version: 16f09ef744fd4227190f626f14cfdefb14362b3b
   subpackages:
   - codec
 - name: golang.org/x/sys
@@ -41,4 +41,16 @@ imports:
   version: c193cecd124b5cc722d7ee5538e945bdb3348435
 - name: gopkg.in/yaml.v2
   version: cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b
-testImports: []
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 6d212800a42e8ab5c146b8ace3490ee17e5225f9
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib
+- name: github.com/stretchr/testify
+  version: 12b6f73e6084dad08a7c6e575284b177ecafbc71
+  subpackages:
+  - assert

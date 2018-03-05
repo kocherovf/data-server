@@ -51,20 +51,10 @@ func (a *App) Build() {
 		log.Fatal(err)
 		panic(err)
 	}
-	dataFetchers["mysql"] = &datafetcher.MySQLDataFetcher{
-		Connection: db1,
-	}
-	dataFetchers["mysql2"] = &datafetcher.MySQLDataFetcher{
-		Connection: db2,
-	}
-	dataFetchers["clickhouse"] = &datafetcher.ClickHouseDataFetcher{
-		Connection: chDb,
-	}
-	aggregatingDataFetcher := &datafetcher.UnifiedDataFetcher{
-		Logger: logger,
-		DataFetchers: dataFetchers,
-
-	}
+	dataFetchers["mysql"] = datafetcher.NewMySQLDataFetcher(db1)
+	dataFetchers["mysql2"] = datafetcher.NewMySQLDataFetcher(db2)
+	dataFetchers["clickhouse"] = datafetcher.NewClickHouseDataFetcher(chDb)
+	aggregatingDataFetcher := datafetcher.NewUnifiedDataFetcher(dataFetchers, logger)
 	{
 		a.queryHandler = handler.QueryHandler{
 			Logger: logger,

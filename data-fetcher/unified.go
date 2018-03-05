@@ -14,7 +14,14 @@ type UnifiedDataFetcher struct {
 	DataFetcher
 }
 
-func (a UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
+func NewUnifiedDataFetcher (dataFetchers map[string]DataFetcher, logger *log.Logger) *UnifiedDataFetcher {
+	return &UnifiedDataFetcher{
+		DataFetchers: dataFetchers,
+		Logger: logger,
+	}
+}
+
+func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	var dataSet []Data
 
 	stmt, err := sqlparser.Parse(sql)

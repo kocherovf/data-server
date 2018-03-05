@@ -8,10 +8,7 @@ import (
 
 func getUsedDataSources(node sqlparser.SQLNode) ([]string, error) {
 	var usedTables []Table
-	usedTables, err := getUsedTables(node, usedTables)
-	if err != nil {
-		return []string{}, err
-	}
+	usedTables = getUsedTables(node, usedTables)
 	dataSourcesMap := map[string]bool{}
 	for _, table := range usedTables {
 		dataSourcesMap[table.Qualifier] = true

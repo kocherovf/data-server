@@ -2,8 +2,7 @@ package datafetcher
 
 import "github.com/kocherovf/data-server/sqlparser"
 
-func getUsedTables(node sqlparser.SQLNode, usedTables []Table) ([]Table, error) {
-	var err error
+func getUsedTables(node sqlparser.SQLNode, usedTables []Table) []Table {
 	switch node := node.(type) {
 	case *sqlparser.Select:
 		nodes := []sqlparser.SQLNode{
@@ -16,34 +15,23 @@ func getUsedTables(node sqlparser.SQLNode, usedTables []Table) ([]Table, error) 
 			node.Limit,
 		}
 		for _, expr := range nodes {
-			usedTables, err = getUsedTables(expr, usedTables)
-			if err != nil {
-				return usedTables, err
-			}
+			usedTables = getUsedTables(expr, usedTables)
 		}
-		return usedTables, nil
+		return usedTables
 	case sqlparser.SelectExprs:
 		for _, selectExpr := range node {
-			usedTables, err = getUsedTables(selectExpr, usedTables)
-			if err != nil {
-				return usedTables, err
-			}
+			usedTables = getUsedTables(selectExpr, usedTables)
 		}
-		return usedTables, nil
+		return usedTables
 	case *sqlparser.AliasedExpr:
-		return getUsedTables(node.Expr, usedTables)
-	case sqlparser.Nextval:
 		return getUsedTables(node.Expr, usedTables)
 	case *sqlparser.Subquery:
 		return getUsedTables(node.Select, usedTables)
 	case sqlparser.TableExprs:
 		for _, tableExpr := range node {
-			usedTables, err = getUsedTables(tableExpr, usedTables)
-			if err != nil {
-				return usedTables, err
-			}
+			usedTables = getUsedTables(tableExpr, usedTables)
 		}
-		return usedTables, nil
+		return usedTables
 	case *sqlparser.AliasedTableExpr:
 		_, ok := node.Expr.(*sqlparser.Subquery)
 		if ok {
@@ -55,56 +43,48 @@ func getUsedTables(node sqlparser.SQLNode, usedTables []Table) ([]Table, error) 
 			Qualifier: tableName.Qualifier.String(),
 			Alias:     node.As.String(),
 		})
-		return usedTables, nil
+		return usedTables
 	case *sqlparser.JoinTableExpr:
-		usedTables, err = getUsedTables(node.LeftExpr, usedTables)
-		if err != nil {
-			return usedTables, err
-		}
-		usedTables, err = getUsedTables(node.RightExpr, usedTables)
-		if err != nil {
-			return usedTables, err
-		}
+		usedTables = getUsedTables(node.LeftExpr, usedTables)
+		usedTables = getUsedTables(node.RightExpr, usedTables)
+
 		return getUsedTables(node.Condition, usedTables)
 	case *sqlparser.Where:
 		if node == nil {
-			return usedTables, nil
+			return usedTables
 		}
 		return getUsedTables(node.Expr, usedTables)
+	case *sqlparser.ComparisonExpr:
+		usedTables = getUsedTables(node.Left, usedTables)
+		usedTables = getUsedTables(node.Right, usedTables)
+
+		return usedTables
 	case sqlparser.GroupBy:
 		if node == nil {
-			return usedTables, nil
+			return usedTables
 		}
 		for _, expr := range node {
-			usedTables, err = getUsedTables(expr, usedTables)
-			if err != nil {
-				return usedTables, err
-			}
+			usedTables = getUsedTables(expr, usedTables)
 		}
-		return usedTables, nil
+		return usedTables
 	case sqlparser.OrderBy:
 		if node == nil {
-			return usedTables, nil
+			return usedTables
 		}
 		for _, expr := range node {
-			usedTables, err = getUsedTables(expr, usedTables)
-			if err != nil {
-				return usedTables, err
-			}
+			usedTables = getUsedTables(expr, usedTables)
 		}
-		return usedTables, nil
+		return usedTables
 	case *sqlparser.Order:
 		if node == nil {
-			return usedTables, nil
+			return usedTables
 		}
 		return getUsedTables(node.Expr, usedTables)
 	case *sqlparser.Limit:
 		if node == nil {
-			return usedTables, nil
+			return usedTables
 		}
 		return getUsedTables(node.Rowcount, usedTables)
-	default:
-		return usedTables, nil
 	}
-	return usedTables, nil
+	return usedTables
 }

@@ -10,6 +10,10 @@ type ClickHouseDataFetcher struct {
 	Connection *sql.DB
 }
 
+func NewClickHouseDataFetcher(connection *sql.DB) *ClickHouseDataFetcher {
+	return &ClickHouseDataFetcher{connection}
+}
+
 func (d *ClickHouseDataFetcher) FetchData(sql string) ([]Data, error) {
 	rows, err := d.Connection.Query(sql)
 	if err != nil {
@@ -58,53 +62,6 @@ func (d *ClickHouseDataFetcher) FetchData(sql string) ([]Data, error) {
 			default:
 				m[columnName] = typeValue
 			}
-			//valBytes := (*value).([]byte)
-			//columnType := columnTypesByName[columnName]
-			//case "VARCHAR":
-			//	m[columnName] = string(valBytes)
-			//case "TEXT":
-			//	m[columnName] = string(valBytes)
-			//case "NVARCHAR":
-			//	m[columnName] = string(valBytes)
-			//case "DECIMAL":
-			//	value, err := strconv.ParseFloat(string(valBytes), 64)
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value
-			//case "FLOAT":
-			//	value, err := strconv.ParseFloat(string(valBytes), 64)
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value
-			//case "BOOL":
-			//	value, err := strconv.Atoi(string(valBytes))
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value == 1
-			//case "INT":
-			//	value, err := strconv.Atoi(string(valBytes))
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value
-			//case "TINYINT":
-			//	value, err := strconv.Atoi(string(valBytes))
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value
-			//case "BIGINT":
-			//	value, err := strconv.Atoi(string(valBytes))
-			//	if err != nil {
-			//		return nil, err
-			//	}
-			//	m[columnName] = value
-			//default:
-			//	fmt.Println(columnType)
-			//}
 		}
 
 		dataSet = append(dataSet, m)
