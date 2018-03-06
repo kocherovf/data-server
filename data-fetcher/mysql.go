@@ -114,3 +114,15 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	}
 	return dataSet, nil
 }
+
+
+func (d *MySQLDataFetcher) FetchJoin(sql string, join JoinResult, channel chan JoinResult) {
+	dataSet, err := d.FetchData(sql)
+	if err != nil {
+		join.Error = err
+	} else {
+		join.DataSet = dataSet
+	}
+
+	channel <- join
+}

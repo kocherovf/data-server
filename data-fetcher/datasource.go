@@ -38,8 +38,6 @@ func getMainDataSource(node sqlparser.SQLNode) (string, error) {
 		return node.Qualifier.String(), nil
 	case *sqlparser.JoinTableExpr:
 		return getMainDataSource(node.LeftExpr)
-	default:
-		return "", errors.New("data source not found")
 	}
 	return "", errors.New("data source not found")
 }
@@ -209,6 +207,9 @@ func clearDataSourceNames(node sqlparser.SQLNode) (sqlparser.SQLNode, error) {
 		}
 		var expr sqlparser.SQLNode
 		expr, err = clearDataSourceNames(node.Expr)
+		if err != nil {
+			return nil, err
+		}
 		node.Expr = expr.(sqlparser.Expr)
 
 		return node, nil
@@ -218,10 +219,24 @@ func clearDataSourceNames(node sqlparser.SQLNode) (sqlparser.SQLNode, error) {
 		}
 		var expr sqlparser.SQLNode
 		expr, err = clearDataSourceNames(node.Rowcount)
+		if err != nil {
+			return nil, err
+		}
 		node.Rowcount = expr.(sqlparser.Expr)
 
 		return node, nil
-	default:
+	case *sqlparser.ComparisonExpr:
+		expr, err := clearDataSourceNames(node.Left)
+		if err != nil {
+			return nil, err
+		}
+		node.Left = expr.(sqlparser.Expr)
+		expr, err = clearDataSourceNames(node.Right)
+		if err != nil {
+			return nil, err
+		}
+		node.Right = expr.(sqlparser.Expr)
+
 		return node, nil
 	}
 	return node, nil
