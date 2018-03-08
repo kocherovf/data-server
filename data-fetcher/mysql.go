@@ -17,6 +17,7 @@ func NewMySQLDataFetcher(connection *sql.DB) *MySQLDataFetcher {
 }
 
 func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
+	fmt.Println("mysql - ", sql)
 	rows, err := d.Connection.Query(sql)
 	if err != nil {
 		return nil, err

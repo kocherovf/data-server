@@ -7,10 +7,13 @@ import (
 	"github.com/kocherovf/data-server/sqlparser"
 )
 
-func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinResult JoinResult) sqlparser.SelectStatement {
+func attachWhereUsingJoinQuery(data []Data, joinQuery JoinQuery) sqlparser.SelectStatement {
+	statement := joinQuery.Statement.(*sqlparser.Select)
+	joinResult := joinQuery.JoinResult
 	var expr sqlparser.Expr
 	joinCount := len(joinResult.Joins)
 	handledJoins := 0
+
 	for _, join := range joinResult.Joins {
 		handledJoins += 1
 		values := sqlparser.ValTuple{}
@@ -21,6 +24,33 @@ func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinRes
 			case string:
 				value = sqlparser.NewStrVal([]byte(typedLeft))
 			case int:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case int8:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case int16:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case int32:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case int64:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case uint:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case uint8:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case uint16:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case uint32:
+				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
+				value = sqlparser.NewIntVal(bytes)
+			case uint64:
 				bytes := strconv.AppendInt(nil, int64(typedLeft), 10)
 				value = sqlparser.NewIntVal(bytes)
 			}
@@ -49,12 +79,12 @@ func attachWhereByJoin(data []Data, statement sqlparser.SelectStatement, joinRes
 		}
 		expr.(*sqlparser.AndExpr).Right = comparisonExpr
 	}
-	where := sqlparser.Where{
+	where := &sqlparser.Where{
 		Type: sqlparser.WhereStr,
 		Expr: expr,
 	}
 
-	statement.(*sqlparser.Select).Where = &where
+	statement.Where = where
 
 	return statement
 }
@@ -325,6 +355,12 @@ BuildTableExpr:
 			if !isAlias {
 				return selectStmt, errors.New("can not get LeftTableExpr type")
 			}
+			if newTableExpr == nil {
+				aliasedTableExpr := typedTableExpr.LeftExpr.(*sqlparser.AliasedTableExpr)
+				tableAliases[aliasedTableExpr.As.String()] = true
+				newTableExpr = aliasedTableExpr
+				break BuildTableExpr
+			}
 			aliasedTableExpr := typedTableExpr.LeftExpr.(*sqlparser.AliasedTableExpr)
 			tableAliases[aliasedTableExpr.As.String()] = true
 			newTableExpr.(*sqlparser.JoinTableExpr).LeftExpr = typedTableExpr.LeftExpr
@@ -359,7 +395,7 @@ BuildTableExpr:
 
 	clearedSelectStmt, err := clearDataSourceNames(selectStmt)
 	if err != nil {
-		return selectStmt, nil
+		return selectStmt, err
 	}
 
 	return clearedSelectStmt.(sqlparser.SelectStatement), nil
@@ -509,11 +545,11 @@ func getJoinFromComparisonExpr(expr *sqlparser.ComparisonExpr, tableAliases map[
 		return Join{
 			Left: Table{
 				Qualifier: expr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
-				Name: expr.Right.(*sqlparser.ColName).Name.String(),
+				Name:      expr.Right.(*sqlparser.ColName).Name.String(),
 			},
 			Right: Table{
 				Qualifier: expr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
-				Name: expr.Left.(*sqlparser.ColName).Name.String(),
+				Name:      expr.Left.(*sqlparser.ColName).Name.String(),
 			},
 		}
 	}
@@ -521,11 +557,11 @@ func getJoinFromComparisonExpr(expr *sqlparser.ComparisonExpr, tableAliases map[
 		return Join{
 			Left: Table{
 				Qualifier: expr.Left.(*sqlparser.ColName).Qualifier.Name.String(),
-				Name: expr.Left.(*sqlparser.ColName).Name.String(),
+				Name:      expr.Left.(*sqlparser.ColName).Name.String(),
 			},
 			Right: Table{
 				Qualifier: expr.Right.(*sqlparser.ColName).Qualifier.Name.String(),
-				Name: expr.Right.(*sqlparser.ColName).Name.String(),
+				Name:      expr.Right.(*sqlparser.ColName).Name.String(),
 			},
 		}
 	}

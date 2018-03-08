@@ -2,7 +2,9 @@ package datafetcher
 
 import (
 	"database/sql"
+	"fmt"
 
+	"github.com/kocherovf/data-server/sqlparser"
 	_ "github.com/kshvakov/clickhouse"
 )
 
@@ -15,6 +17,13 @@ func NewClickHouseDataFetcher(connection *sql.DB) *ClickHouseDataFetcher {
 }
 
 func (d *ClickHouseDataFetcher) FetchData(sql string) ([]Data, error) {
+	fmt.Println("ch - ", sql)
+	var stmt sqlparser.SQLNode
+	var err error
+	stmt, err = sqlparser.Parse(sql)
+	stmt, err = clearTableAliases(stmt)
+	sql = sqlparser.String(stmt)
+	fmt.Println(sql)
 	rows, err := d.Connection.Query(sql)
 	if err != nil {
 		return nil, err
@@ -46,8 +55,8 @@ func (d *ClickHouseDataFetcher) FetchData(sql string) ([]Data, error) {
 		// Scan the result into the column pointers...
 		err := rows.Scan(columnPointers...)
 		if err != nil {
-		return nil, err
-	}
+			return nil, err
+		}
 
 		// Create our map, and retrieve the value for each column from the pointers slice,
 		// storing it in the map with the name of the column as the key.

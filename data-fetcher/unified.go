@@ -3,7 +3,6 @@ package datafetcher
 import (
 	"fmt"
 	"log"
-	"reflect"
 
 	"github.com/kocherovf/data-server/sqlparser"
 )
@@ -11,19 +10,22 @@ import (
 type UnifiedDataFetcher struct {
 	DataFetchers map[string]DataFetcher
 	Logger       *log.Logger
+	Planner      *Planner
 	DataFetcher
 }
 
-func NewUnifiedDataFetcher (dataFetchers map[string]DataFetcher, logger *log.Logger) *UnifiedDataFetcher {
+func NewUnifiedDataFetcher(dataFetchers map[string]DataFetcher, logger *log.Logger) *UnifiedDataFetcher {
 	return &UnifiedDataFetcher{
 		DataFetchers: dataFetchers,
-		Logger: logger,
+		Logger:       logger,
+		Planner:      NewPlanner(),
 	}
 }
 
 func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	var dataSet []Data
 
+	// parse SQL
 	stmt, err := sqlparser.Parse(sql)
 	if err != nil {
 		return nil, err
@@ -32,60 +34,36 @@ func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	if err != nil {
 		return nil, err
 	}
-	usedDataSources, err := getUsedDataSources(stmt)
+
+	plan, err := a.Planner.plan(stmt.(sqlparser.SelectStatement))
 	if err != nil {
 		return nil, err
 	}
-	if len(usedDataSources) == 1 {
-		dataFetcher, err := a.getDataFetcherByName(usedDataSources[0])
-		if err != nil {
-			return nil, err
-		}
-		var newStmt sqlparser.SQLNode
-		newStmt, err = clearDataSourceNames(stmt)
-		if err != nil {
-			return nil, err
-		}
-		dataSet, err = dataFetcher.FetchData(sqlparser.String(newStmt))
-		if err != nil {
-			return nil, err
-		}
+	if err != nil {
+		return nil, err
+	}
+
+	dataSet, err = a.fetchByQuery(plan.MainQuery)
+	if err != nil {
+		return nil, err
+	}
+	if len(plan.SecondaryQueries) == 0 {
 		return dataSet, nil
 	}
 
-	mainDataSource, err := getMainDataSource(stmt)
-	if err != nil {
-		return nil, err
-	}
-
-	mainStmt, err := getMainStatementByDataSource(stmt.(*sqlparser.Select), mainDataSource)
-	if err != nil {
-		return nil, err
-	}
-	mainDataFetcher, err := a.getDataFetcherByName(mainDataSource)
-	if err != nil {
-		return nil, err
-	}
-
-	dataSet, err = mainDataFetcher.FetchData(sqlparser.String(mainStmt))
+	usedDataSources, err := getUsedDataSources(stmt)
 	if err != nil {
 		return nil, err
 	}
 
 	joinAmount := len(usedDataSources) - 1
 	channel := make(chan JoinResult, joinAmount)
-
-	for _, dataSource := range usedDataSources {
-		if dataSource == mainDataSource {
-			continue
-		}
-		joinDataFetcher, err := a.getDataFetcherByName(dataSource)
+	for _, joinQuery := range plan.SecondaryQueries {
+		joinQuery.Statement = attachWhereUsingJoinQuery(dataSet, joinQuery)
+		err = a.executeJoinQuery(joinQuery, channel)
 		if err != nil {
 			return nil, err
 		}
-		joinStmt, joinResult, err := getJoinStatementByDataSource(stmt.(*sqlparser.Select), dataSource)
-		joinStmt = attachWhereByJoin(dataSet, joinStmt, joinResult)
-		go joinDataFetcher.FetchJoin(sqlparser.String(joinStmt), joinResult, channel)
 	}
 
 	counter := 0
@@ -100,14 +78,12 @@ func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 				for _, join := range receivedJoinResult.Joins {
 					castedLeft := castValue(mainRow[join.Left.Name])
 					castedRight := castValue(joinRow[join.Right.Name])
-					fmt.Println("left - ", reflect.TypeOf(castedLeft))
-					fmt.Println("right - ", reflect.TypeOf(castedRight))
 					if castedLeft != castedRight {
 						continue
 					}
 					equalFields += 1
 				}
-				if (joinsCount != equalFields) {
+				if joinsCount != equalFields {
 					continue
 				}
 				for key, value := range joinRow {
@@ -125,9 +101,33 @@ func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 	return dataSet, nil
 }
 
+func (a *UnifiedDataFetcher) fetchByQuery(query Query) ([]Data, error) {
+	dataFetcher, err := a.getDataFetcherByName(query.DataSource)
+	if err != nil {
+		return nil, err
+	}
+	dataSet, err := dataFetcher.FetchData(sqlparser.String(query.Statement))
+	if err != nil {
+		return nil, err
+	}
+	return dataSet, nil
+}
+
+func (a *UnifiedDataFetcher) executeJoinQuery(joinQuery JoinQuery, channel chan JoinResult) error {
+	joinDataFetcher, err := a.getDataFetcherByName(joinQuery.DataSource)
+	if err != nil {
+		return err
+	}
+	go joinDataFetcher.FetchJoin(sqlparser.String(joinQuery.Statement), joinQuery.JoinResult, channel)
+
+	return nil
+}
+
 func castValue(value interface{}) interface{} {
 	switch typedValue := value.(type) {
 	case int:
+		return int64(typedValue)
+	case int8:
 		return int64(typedValue)
 	case int16:
 		return int64(typedValue)
@@ -135,12 +135,20 @@ func castValue(value interface{}) interface{} {
 		return int64(typedValue)
 	case int64:
 		return int64(typedValue)
+	case uint:
+		return int64(typedValue)
+	case uint8:
+		return int64(typedValue)
+	case uint16:
+		return int64(typedValue)
+	case uint32:
+		return int64(typedValue)
+	case uint64:
+		return int64(typedValue)
 	case float32:
 		return float64(typedValue)
 	case float64:
 		return float64(typedValue)
-	default:
-		return typedValue
 	}
 	return value
 }

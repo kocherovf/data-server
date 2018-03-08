@@ -1053,6 +1053,9 @@ func TestCaseSensitivity(t *testing.T) {
 		output: "select next 1 values from t",
 	}, {
 		input: "select /* use */ 1 from t1 use index (A) where b = 1",
+	},{
+		input:  "select * from table1 as t global any left join table2 as t2 on t.field1 = t2.field2",
+		output: "select * from table1 as t global any left join table2 as t2 on t.field1 = t2.field2",
 	}}
 	for _, tcase := range validSQL {
 		if tcase.output == "" {

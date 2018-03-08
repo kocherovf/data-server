@@ -36,24 +36,18 @@ func (a *App) Build() {
 
 	dataFetchers := map[string]datafetcher.DataFetcher{}
 
-	db1, err := sql.Open("mysql", "root:root@/Test1")
+	db1, err := sql.Open("mysql", "qc-backup:X8mg0oFoEp@tcp(localhost:3307)/CoccocAds_backup")
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
 	}
-	db2, err := sql.Open("mysql", "root:root@/Test2")
+	chDb, err := sql.Open("clickhouse", "tcp://localhost:9000")
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
 	}
-	chDb, err := sql.Open("clickhouse", "tcp://127.0.0.1:9000?database=AdsStat")
-	if err != nil {
-		log.Fatal(err)
-		panic(err)
-	}
-	dataFetchers["mysql"] = datafetcher.NewMySQLDataFetcher(db1)
-	dataFetchers["mysql2"] = datafetcher.NewMySQLDataFetcher(db2)
-	dataFetchers["clickhouse"] = datafetcher.NewClickHouseDataFetcher(chDb)
+	dataFetchers["CoccocAds"] = datafetcher.NewMySQLDataFetcher(db1)
+	dataFetchers["Statistics"] = datafetcher.NewClickHouseDataFetcher(chDb)
 	aggregatingDataFetcher := datafetcher.NewUnifiedDataFetcher(dataFetchers, logger)
 	{
 		a.queryHandler = handler.QueryHandler{
