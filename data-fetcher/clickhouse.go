@@ -23,7 +23,7 @@ func (d *ClickHouseDataFetcher) FetchData(sql string) ([]Data, error) {
 	stmt, err = sqlparser.Parse(sql)
 	stmt, err = clearTableAliases(stmt)
 	sql = sqlparser.String(stmt)
-	fmt.Println(sql)
+	fmt.Println("ch cleared - ", sql)
 	rows, err := d.Connection.Query(sql)
 	if err != nil {
 		return nil, err

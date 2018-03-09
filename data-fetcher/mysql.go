@@ -2,6 +2,7 @@ package datafetcher
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 	"strconv"
 
@@ -49,8 +50,8 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 		// Scan the result into the column pointers...
 		err := rows.Scan(columnPointers...)
 		if err != nil {
-		return nil, err
-	}
+			return nil, err
+		}
 
 		// Create our map, and retrieve the value for each column from the pointers slice,
 		// storing it in the map with the name of the column as the key.
@@ -64,19 +65,9 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 			valBytes := (*val).([]byte)
 			columnType := columnTypesByName[columnName]
 			switch columnType {
-			case "VARCHAR":
+			case "CHAR", "VARCHAR", "NVARCHAR", "BINARY", "VARBINARY", "TINYBLOB", "TINYTEXT", "BLOB", "TEXT", "MEDIUMBLOB", "MEDIUMTEXT", "LONGBLOB", "LONGTEXT", "DATE", "DATETIME", "TIMESTAMP", "TIME", "ENUM":
 				m[columnName] = string(valBytes)
-			case "TEXT":
-				m[columnName] = string(valBytes)
-			case "NVARCHAR":
-				m[columnName] = string(valBytes)
-			case "DECIMAL":
-				value, err := strconv.ParseFloat(string(valBytes), 64)
-				if err != nil {
-					return nil, err
-				}
-				m[columnName] = value
-			case "FLOAT":
+			case "DECIMAL", "FLOAT", "DOUBLE", "REAL":
 				value, err := strconv.ParseFloat(string(valBytes), 64)
 				if err != nil {
 					return nil, err
@@ -88,26 +79,16 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 					return nil, err
 				}
 				m[columnName] = value == 1
-			case "INT":
+			case "INT", "TINYINT", "SMALLINT", "BIGINT", "SERIAL":
 				value, err := strconv.Atoi(string(valBytes))
 				if err != nil {
 					return nil, err
 				}
 				m[columnName] = value
-			case "TINYINT":
-				value, err := strconv.Atoi(string(valBytes))
-				if err != nil {
-					return nil, err
-				}
-				m[columnName] = value
-			case "BIGINT":
-				value, err := strconv.Atoi(string(valBytes))
-				if err != nil {
-					return nil, err
-				}
 				m[columnName] = value
 			default:
-				fmt.Println(columnType)
+				fmt.Println("column name - ", columnName, "; column type ", columnType)
+				return dataSet, errors.New("cannot convert: column name - " + columnName + "; column type " + columnType)
 			}
 		}
 
@@ -115,7 +96,6 @@ func (d *MySQLDataFetcher) FetchData(sql string) ([]Data, error) {
 	}
 	return dataSet, nil
 }
-
 
 func (d *MySQLDataFetcher) FetchJoin(sql string, join JoinResult, channel chan JoinResult) {
 	dataSet, err := d.FetchData(sql)

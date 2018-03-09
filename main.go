@@ -7,7 +7,7 @@ import (
 
 // main... is main
 func main() {
-	logFileName := "/home/deivas/log.log"
+	logFileName := "/home/kocherov/go/src/github.com/kocherovf/data-server/error.log"
 	fromEnv := os.Getenv("ERROR_LOG_FILENAME")
 
 	if fromEnv != "" {

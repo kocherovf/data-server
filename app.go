@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/kocherovf/data-server/data-fetcher"
 	"github.com/kocherovf/data-server/handler"
+	"gopkg.in/mgo.v2"
 )
 
 type App struct {
@@ -46,8 +47,13 @@ func (a *App) Build() {
 		log.Fatal(err)
 		panic(err)
 	}
+	mDb, err := mgo.Dial("localhost")
+	if err != nil {
+		log.Fatal("cannot dial mongo", err)
+	}
 	dataFetchers["CoccocAds"] = datafetcher.NewMySQLDataFetcher(db1)
 	dataFetchers["Statistics"] = datafetcher.NewClickHouseDataFetcher(chDb)
+	dataFetchers["Mongo"] = datafetcher.NewMongoDBDataFetcher(mDb.DB("ContextStat"))
 	aggregatingDataFetcher := datafetcher.NewUnifiedDataFetcher(dataFetchers, logger)
 	{
 		a.queryHandler = handler.QueryHandler{

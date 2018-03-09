@@ -17,8 +17,6 @@ type QueryHandler struct {
 
 // Handle
 func (h QueryHandler) Handle(c *gin.Context) {
-	h.Logger.Println("Test")
-
 	sql, _ := ioutil.ReadAll(c.Request.Body)
 
 	stmt, err := sqlparser.Parse(string(sql))

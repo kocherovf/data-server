@@ -84,6 +84,8 @@ func (a *UnifiedDataFetcher) FetchData(sql string) ([]Data, error) {
 					equalFields += 1
 				}
 				if joinsCount != equalFields {
+					fmt.Println("cannon join - ", receivedJoinResult.Joins)
+					fmt.Println("cannon join equal - ", equalFields, " - ", joinsCount)
 					continue
 				}
 				for key, value := range joinRow {
