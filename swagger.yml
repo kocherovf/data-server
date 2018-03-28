@@ -1,0 +1,1115 @@
+openapi: "3.0.1"
+info:
+  title: Advertising data server
+  description: "This is service for fetching advertsing data using filters and sorting"
+  version: "1.0"
+  # termsOfService: https://konghq.com/terms/
+  contact:
+    name: Philipp Kocherov
+    url: https://stafftool.coccoc.com/user/show/1111
+    email: deivas@coccoc.com
+servers:
+- url: http://ads-data-server-production.com:8920/v1
+  description: Production server
+- url: http://ads-data-server-stagin.com:8920/v1
+  description: Staging server
+paths:
+  /users:
+    get:
+      tags:
+      - User
+      summary: Get users using filters
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/sort'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/user'
+                  total:
+                    $ref: '#/components/schemas/simpleStats'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/user/value'
+                  total:
+                    $ref: '#/components/examples/simpleStats/value'
+
+  /users/{userId}:
+    get:
+      tags:
+      - User
+      summary: Get a user by ID
+      parameters:
+      - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+                example:
+                  $ref: '#/components/examples/user/value'
+
+  /campaigns:
+    get:
+      tags:
+      - Campaign
+      summary: Get campaigns using filters
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/sort'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/campaign'
+                  total:
+                    $ref: '#/components/schemas/simpleStats'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/campaign/value'
+                  total:
+                    $ref: '#/components/examples/simpleStats/value'
+
+  /campaigns/{campaignId}:
+    get:
+      tags:
+      - Campaign
+      summary: Get a campaign by ID
+      parameters:
+      - $ref: '#/components/parameters/campaignId'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/campaign'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/campaign/value'
+                  total:
+                  - $ref: '#/components/examples/simpleStats/value'
+
+  /ads:
+    get:
+      tags:
+      - Ad
+      summary: Get ads using filters
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/sort'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ad'
+                  total:
+                    $ref: '#/components/schemas/extendedStats'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/serpAd/value'
+                  - $ref: '#/components/examples/serpMediaAd/value'
+                  - $ref: '#/components/examples/iconAd/value'
+                  - $ref: '#/components/examples/ntrbAd/value'
+                  - $ref: '#/components/examples/ntrbVideoAd/value'
+                  - $ref: '#/components/examples/ntrbJSAd/value'
+                  - $ref: '#/components/examples/skinAd/value'
+                  - $ref: '#/components/examples/shoppingAd/value'
+                  total:
+                    $ref: '#/components/examples/extendedStats/value'
+  /ads/{adId}:
+    get:
+      tags:
+      - Ad
+      summary: Get an ad by ID
+      parameters:
+      - $ref: '#/components/parameters/adId'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ad'
+                  total:
+                    $ref: '#/components/schemas/extendedStats'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/serpAd/value'
+                  total:
+                    $ref: '#/components/examples/extendedStats/value'
+  /matches:
+    get:
+      tags:
+      - Match
+      summary: Get matches using filters
+      parameters:
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/sort'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/match'
+                  total:
+                    $ref: '#/components/schemas/extendedStats'
+                example:
+                  count: 30
+                  items:
+                  - $ref: '#/components/examples/phrase/value'
+                  - $ref: '#/components/examples/category/value'
+                  - $ref: '#/components/examples/demographic/value'
+                  - $ref: '#/components/examples/customCategory/value'
+                  total:
+                    $ref: '#/components/examples/extendedStats/value'
+  /matches/{matchId}:
+    get:
+      tags:
+      - Match
+      summary: Get a match by ID
+      parameters:
+      - $ref: '#/components/parameters/matchId'
+      - $ref: '#/components/parameters/start'
+      - $ref: '#/components/parameters/end'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        200:
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/match'
+                  total:
+                    $ref: '#/components/schemas/extendedStats'
+                example:
+                  count: 30
+                  items:
+                    $ref: '#/components/examples/phrase/value'
+                  total:
+                    $ref: '#/components/examples/extendedStats/value'
+
+components:
+  parameters:
+    userId:
+      in: path
+      name: userId
+      schema:
+        type: integer
+      required: true
+      description: ID of the user to get
+    campaignId:
+      in: path
+      name: campaignId
+      schema:
+        type: integer
+      required: true
+      description: ID of the campaign to get
+    adId:
+      in: path
+      name: adId
+      schema:
+        type: integer
+      required: true
+      description: ID of the ad to get
+    matchId:
+      in: path
+      name: matchId
+      schema:
+        type: integer
+      required: true
+      description: ID of the match to get
+    userFilter:
+      in: query
+      name: userId
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+      required: true
+      description: list of user ids
+    campaignFilter:
+      in: query
+      name: campaignId
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+      required: false
+      description: list of campaign ids
+    adFilter:
+      in: query
+      name: adId
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+      required: false
+      description: list of campaign ids
+    limit:
+      name: limit
+      in: query
+      description: "Rows limit"
+      style: form
+      explode: false
+      schema:
+        type: integer
+      example: 25
+    offset:
+      name: offset
+      in: query
+      description: "Rows offset"
+      style: form
+      explode: false
+      schema:
+        type: integer
+      example: 0
+    sort:
+      name: sort
+      in: query
+      description: "Field name for sorting"
+      style: form
+      explode: false
+      schema:
+        type: string
+      example: "name"
+    start:
+      name: start
+      in: query
+      description: "Start date filter"
+      style: form
+      explode: false
+      schema:
+        type: string
+        format: date
+      example: "2018-01-01"
+    end:
+      name: end
+      in: query
+      description: "End date filter"
+      style: form
+      explode: false
+      schema:
+        type: string
+        format: date
+      example: "2018-03-01"
+    filter:
+      name: filter
+      in: query
+      description: Filters for data. Must be valid json which will satisfy <a href="#filter">filter</a> model scheme
+      style: form
+      schema:
+        type: string
+    fields:
+      in: query
+      name: fields
+      style: form
+      explode: false
+      schema:
+        type: array
+        items:
+          type: string
+      required: false
+      description: list of fields
+  schemas:
+    filter:
+      type: array
+      items:
+        type: object
+        properties:
+          field:
+            type: string
+          operator:
+            type: string
+          value:
+            anyOf:
+            - type: string
+            - type: number
+            - type: array
+    user:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/userId'
+        details:
+          $ref: '#/components/schemas/userDetails'
+        stats:
+          $ref: '#/components/schemas/simpleStats'
+    userId:
+      type: integer
+      format: int64
+    userDetails:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        profileId:
+          type: integer
+          enum: [1, 6, 8, 18, 20]
+        phone:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    simpleStats:
+      type: object
+      properties:
+        clicks:
+          type: integer
+          format: int64
+        shows:
+          type: integer
+          format: int64
+        spendings:
+          type: number
+          format: double
+        avg_cpc:
+          type: number
+          format: double
+        avg_cpm:
+          type: number
+          format: double
+        ctr:
+          type: number
+          format: double
+    campaign:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/userId'
+        id:
+          $ref: '#/components/schemas/campaignId'
+        details:
+          $ref: '#/components/schemas/campaignDetails'
+        system:
+          $ref: '#/components/schemas/simpleSystem'
+        stats:
+          $ref: '#/components/schemas/simpleStats'
+    campaignId:
+      type: integer
+      format: int64
+    campaignDetails:
+      allOf:
+      - type: object
+        properties:
+          name:
+            type: string
+          paymentType:
+            type: string
+            enum: ["CPM", "CPC"]
+          type:
+            type: integer
+            enum: [10, 11, 21, 22, 23, 24, 40, 50, 60, 70]
+          weeklyBudget:
+            type: integer
+            format: int64
+          bidStrategy:
+            type: integer
+            format: int8
+          createdAt:
+            type: string
+            format: date-time
+          status:
+            type: integer
+            format: int8
+          geo:
+            $ref: '#/components/schemas/geoTargeting'
+      - $ref: '#/components/schemas/timeTargeting'
+    timeTargeting:
+      type: object
+      properties:
+        timeStart:
+          type: string
+          format: date-time
+        timeEnd:
+          type: string
+          format: date-time
+    geoTargeting:
+      type: object
+      properties:
+        regions:
+          type: array
+          items:
+            type: integer
+            format: int32
+    simpleSystem:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int16
+    ad:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/userId'
+        campaignId:
+          $ref: '#/components/schemas/campaignId'
+        campaignName:
+          $ref: '#/components/schemas/campaignName'
+        id:
+          $ref: '#/components/schemas/adId'
+        type:
+          type: integer
+          format: int8
+        details:
+          $ref: '#/components/schemas/adDetails'
+        system:
+          $ref: '#/components/schemas/extendedSystem'
+        stats:
+          $ref: '#/components/schemas/extendedStats'
+    adId:
+      type: integer
+      format: int64
+    campaignName:
+        type: string
+    extendedSystem:
+      allOf:
+      - $ref: '#/components/schemas/simpleSystem'
+      - type: object
+        properties:
+          rejectedReasons:
+            type: array
+            items:
+              type: integer
+              format: int16
+    adDetails:
+      oneOf:
+      - $ref: '#/components/schemas/serpDetails'
+      - $ref: '#/components/schemas/simpleMediaDetails'
+      - $ref: '#/components/schemas/simpleCustomDetails'
+      - $ref: '#/components/schemas/ntrbJSDetails'
+      - $ref: '#/components/schemas/shoppingDetails'
+    commonDetails:
+      allOf:
+      - type: object
+        properties:
+          status:
+            type: integer
+            format: int8
+          createdAt:
+            type: string
+            format: date-time
+          geo:
+            $ref: '#/components/schemas/geoTargeting'
+          schedule:
+            $ref: '#/components/schemas/schedule'
+      - $ref: '#/components/schemas/timeTargeting'
+    serpDetails:
+      allOf:
+      - $ref: '#/components/schemas/commonDetails'
+      - $ref: '#/components/schemas/simpleMediaDetails'
+      - type: object
+        properties:
+          description:
+            type: string
+          placementType:
+            type: array
+            items:
+              type: string
+              enum: ['serp0', 'serp1', 'serp2', 'mb_general']
+    simpleMediaDetails:
+      allOf:
+      - $ref: '#/components/schemas/commonDetails'
+      - type: object
+        properties:
+          title:
+            type: string
+          url:
+            type: string
+            format: uri
+          media:
+            $ref: '#/components/schemas/media'
+    simpleCustomDetails:
+      allOf:
+      - $ref: '#/components/schemas/commonDetails'
+      - type: object
+        properties:
+          title:
+            type: string
+          fields:
+            type: array
+            items:
+              type: object
+              properties:
+                field:
+                  type: string
+                value:
+                  type: string
+                option:
+                  type: string
+    ntrbJSDetails:
+      allOf:
+      - $ref: '#/components/schemas/commonDetails'
+      - type: object
+        properties:
+          title:
+            type: string
+          code:
+            type: string
+          size:
+            type: string
+            enum: ['728x90', '640x360']
+    shoppingDetails:
+      allOf:
+      - $ref: '#/components/schemas/commonDetails'
+      - $ref: '#/components/schemas/simpleMediaDetails'
+      - type: object
+        properties:
+          salePrice:
+            type: integer
+            format: int64
+          originalPrice:
+            type: integer
+            format: int64
+          shopName:
+            type: string
+    schedule:
+      type: string
+    bidLimit:
+      type: object
+      properties:
+        min:
+          type: integer
+          format: int64
+        max:
+          type: integer
+          format: int64
+        aloMin:
+          type: integer
+          format: int64
+        aloMax:
+          type: integer
+          format: int64
+    extendedStats:
+      allOf:
+      - $ref: '#/components/schemas/simpleStats'
+      - type: object
+        properties:
+          avgPos:
+            type: number
+            format: double
+    media:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: ['image', 'video']
+        url:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+    match:
+      type: object
+      properties:
+        userId:
+          $ref: '#/components/schemas/userId'
+        campaignId:
+          $ref: '#/components/schemas/campaignId'
+        campaignName:
+          $ref: '#/components/schemas/campaignName'
+        adId:
+          $ref: '#/components/schemas/adId'
+        adName:
+          $ref: '#/components/schemas/adName'
+        id:
+          $ref: '#/components/schemas/matchId'
+        type:
+          type: string
+          enum: ['phrase', 'category', 'demographic', 'custom_category']
+        details:
+          $ref: '#/components/schemas/matchDetails'
+        system:
+          $ref: '#/components/schemas/simpleSystem'
+        stats:
+          $ref: '#/components/schemas/extendedStats'
+    adName:
+      type: string
+    matchId:
+      type: integer
+      format: int64
+    matchDetails:
+      oneOf:
+      - $ref: '#/components/schemas/phraseDetails'
+      - $ref: '#/components/schemas/categoryDetails'
+    phraseDetails:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int8
+        phrase:
+          type: string
+        bid:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+    categoryDetails:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int8
+        category:
+          type: integer
+          format: int32
+        bid:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: date-time
+  examples:
+    user:
+      value:
+        id: 1
+        details:
+          email: 'john@doe.com'
+          profileId: 1
+          phone: '0972701100'
+          firstName: 'John'
+          lastName: 'Doe'
+        stats:
+          $ref: '#/components/examples/simpleStats/value'
+    campaign:
+      value:
+        userId: 1
+        id: 1
+        details:
+          name: 'Campaign name'
+          paymentType: "CPC"
+          type: 10
+          weeklyBudget: 5000000
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          createdAt: '2018-01-01'
+          bidStrategy: 1
+          status: 1
+          geo:
+            $ref: '#/components/examples/geo/value'
+        stats:
+          $ref: '#/components/examples/simpleStats/value'
+        system:
+          $ref: '#/components/examples/simpleSystem/value'
+    geo:
+      value:
+        regions:
+        - 1
+        - 2
+        - 147
+    simpleSystem:
+      value:
+        status: 145
+    simpleStats:
+      value:
+        clicks: 111
+        shows: 1111
+        spendings: 222000
+        avg_cpc: 1900
+        avg_cpm: 5000
+        ctr: 0.1
+    serpAd:
+      value:
+        userId: 1
+        campaignId: 1
+        campaignName: 'Serp Campaign'
+        id: 1
+        type: 10
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          description: 'Some description'
+          url: 'http://example.com'
+          media:
+            type: 'image'
+            url: 'http://cdn.com/path/file.jpg'
+            width: 90
+            height: 90
+          placementType: ['serp0', 'serp1', 'serp2', 'mb_general']
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    iconAd:
+      value:
+        userId: 1
+        campaignId: 2
+        campaignName: 'Icon Campaign'
+        id: 2
+        type: 40
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          url: 'http://example.com'
+          media:
+            type: 'image'
+            url: 'http://cdn.com/path/file.jpg'
+            width: 60
+            height: 60
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    serpMediaAd:
+      value:
+        userId: 1
+        campaignId: 3
+        campaignName: 'Serp Media Campaign'
+        id: 3
+        type: 11
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          url: 'http://example.com'
+          media:
+            type: 'image'
+            url: 'http://cdn.com/path/file.jpg'
+            width: 240
+            height: 400
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    ntrbAd:
+      value:
+        userId: 1
+        campaignId: 4
+        campaignName: 'Ntrb Campaign'
+        id: 4
+        type: 21
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          url: 'http://example.com'
+          media:
+            type: 'image'
+            url: 'http://cdn.com/path/file.jpg'
+            width: 728
+            height: 90
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    ntrbJSAd:
+      value:
+        userId: 1
+        campaignId: 5
+        campaignName: 'Ntrb JS Campaign'
+        id: 5
+        type: 22
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          code: '<script>alert("Hi, I am xss injection")<script>'
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    ntrbVideoAd:
+      value:
+        userId: 1
+        campaignId: 6
+        campaignName: 'Ntrb Video Campaign'
+        id: 6
+        type: 23
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          fields:
+          - field: 'some field'
+            value: 'some value'
+            option: 'some option'
+          - field: 'some other field'
+            value: 'some other value'
+            option: 'some other option'
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    skinAd:
+      value:
+        userId: 1
+        campaignId: 7
+        campaignName: 'Skin Campaign'
+        id: 7
+        type: 24
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          fields:
+          - field: 'some field'
+            value: 'some value'
+            option: 'some option'
+          - field: 'some other field'
+            value: 'some other value'
+            option: 'some other option'
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    shoppingAd:
+      value:
+        userId: 1
+        campaignId: 8
+        campaignName: 'Shopping Campaign'
+        id: 8
+        type: 50
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          title: 'Some title'
+          url: 'http://example.com'
+          media:
+            type: 'image'
+            url: 'http://cdn.com/path/file.jpg'
+            width: 256
+            height: 256
+          originalPrice: 2782000
+          salePrice: 1604000
+          shopName: 'Super cool shop'
+          status: 1
+          createdAt: '2018-03-01'
+          timeStart: '2018-01-01'
+          timeEnd: '2018-01-01'
+          geo:
+            $ref: '#/components/examples/geo/value'
+          schedule: "I don't know which format we should use for this"
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    extendedSystem:
+      value:
+        status: 145
+        rejectedReasons: [1, 2, 3]
+    extendedStats:
+      value:
+        clicks: 111
+        shows: 1111
+        spendings: 222000
+        avgCpc: 1900
+        avgCpm: 5000
+        ctr: 0.1
+        avgPosition: 2
+    phrase:
+      value:
+        userId: 1
+        campaignId: 1
+        campaignName: 'Some Campaign Name'
+        adId: 1
+        adName: 'Some Ad Name'
+        id: 8
+        type: 'phrase'
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          phrase: 'some phrase'
+          bid: 5000
+          status: 1
+          createdAt: '2018-01-01'
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    category:
+      value:
+        userId: 1
+        campaignId: 1
+        campaignName: 'Some Campaign Name'
+        adId: 1
+        adName: 'Some Ad Name'
+        id: 8
+        type: 'category'
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          category: 123
+          bid: 5000
+          status: 1
+          createdAt: '2018-01-01'
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    demographic:
+      value:
+        userId: 1
+        campaignId: 1
+        campaignName: 'Some Campaign Name'
+        adId: 1
+        adName: 'Some Ad Name'
+        id: 8
+        type: 'demographic'
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          category: 321
+          bid: 5000
+          status: 1
+          createdAt: '2018-01-01'
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+    customCategory:
+      value:
+        userId: 1
+        campaignId: 1
+        campaignName: 'Some Campaign Name'
+        adId: 1
+        adName: 'Some Ad Name'
+        id: 8
+        type: 'custom_category'
+        stats:
+          $ref: '#/components/examples/extendedStats/value'
+        details:
+          category: 321
+          bid: 5000
+          status: 1
+          createdAt: '2018-01-01'
+        system:
+          $ref: '#/components/examples/extendedSystem/value'
+
