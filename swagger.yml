@@ -1,8 +1,8 @@
-openapi: "3.0.1"
+openapi: '3.0.1'
 info:
   title: Advertising data server
-  description: "This is service for fetching advertsing data using filters and sorting"
-  version: "1.0"
+  description: 'This is service for fetching advertsing data using filters and sorting'
+  version: '1.0'
   # termsOfService: https://konghq.com/terms/
   contact:
     name: Philipp Kocherov
@@ -455,6 +455,20 @@ components:
           type: string
         lastName:
           type: string
+        registeredAt:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        autoAddUtms:
+          type: boolean
+        marketingSource:
+          type: string
+        apiLimit:
+          type: integer
+        locale:
+          type: string
+          enum: ['vi_VN', 'en_US']
     simpleStats:
       type: object
       properties:
@@ -467,10 +481,10 @@ components:
         spendings:
           type: number
           format: double
-        avg_cpc:
+        avgCpc:
           type: number
           format: double
-        avg_cpm:
+        avgCpm:
           type: number
           format: double
         ctr:
@@ -508,8 +522,11 @@ components:
             type: integer
             format: int64
           bidStrategy:
+            type: string
+            enum: ['MANUAL', 'FIT_IN_BUDGET']
+          bid:
             type: integer
-            format: int8
+            format: int32
           createdAt:
             type: string
             format: date-time
@@ -611,7 +628,7 @@ components:
             type: array
             items:
               type: string
-              enum: ['serp0', 'serp1', 'serp2', 'mb_general']
+              enum: ['serp', 'newtab']
     simpleMediaDetails:
       allOf:
       - $ref: '#/components/schemas/commonDetails'
@@ -638,10 +655,14 @@ components:
               properties:
                 field:
                   type: string
+                type:
+                  type: string
+                  enum: ['string', 'file', 'video']
                 value:
                   type: string
                 option:
                   type: string
+                  enum: ['default', 'landing', 'cache', 'css_url']
     ntrbJSDetails:
       allOf:
       - $ref: '#/components/schemas/commonDetails'
@@ -660,14 +681,39 @@ components:
       - $ref: '#/components/schemas/simpleMediaDetails'
       - type: object
         properties:
-          salePrice:
+          price:
             type: integer
             format: int64
-          originalPrice:
+          oldPrice:
             type: integer
             format: int64
           shopName:
             type: string
+          feed:
+            type: object
+            properties:
+              url:
+                type: string
+                format: uri
+              format:
+                type: string
+                enum: ['json', 'xml']
+              inSync:
+                type: boolean
+              inModeration:
+                type: boolean
+              lastErrorsCount:
+                type: integer
+                format: int32
+              createdAt:
+                type: string
+                format: date-date
+              updatedAt:
+                type: string
+                format: date-date
+              syncronizedAt:
+                type: string
+                format: date-date
     schedule:
       type: string
     bidLimit:
@@ -717,20 +763,20 @@ components:
           $ref: '#/components/schemas/campaignName'
         adId:
           $ref: '#/components/schemas/adId'
-        adName:
-          $ref: '#/components/schemas/adName'
+        adTitle:
+          $ref: '#/components/schemas/adTitle'
         id:
           $ref: '#/components/schemas/matchId'
         type:
           type: string
-          enum: ['phrase', 'category', 'demographic', 'custom_category']
+          enum: ['phrase', 'category', 'demographic', 'customCategory']
         details:
           $ref: '#/components/schemas/matchDetails'
         system:
           $ref: '#/components/schemas/simpleSystem'
         stats:
           $ref: '#/components/schemas/extendedStats'
-    adName:
+    adTitle:
       type: string
     matchId:
       type: integer
@@ -778,6 +824,12 @@ components:
           phone: '0972701100'
           firstName: 'John'
           lastName: 'Doe'
+          registeredAt: '2018-01-01 12:00:00'
+          status: 1
+          autoAddUtms: true
+          marketingSource: 'something'
+          apiLimit: 100000000
+          locale: 'en_US'
         stats:
           $ref: '#/components/examples/simpleStats/value'
     campaign:
@@ -792,7 +844,7 @@ components:
           timeStart: '2018-01-01'
           timeEnd: '2018-01-01'
           createdAt: '2018-01-01'
-          bidStrategy: 1
+          bidStrategy: 'MANUAL'
           status: 1
           geo:
             $ref: '#/components/examples/geo/value'
@@ -814,8 +866,8 @@ components:
         clicks: 111
         shows: 1111
         spendings: 222000
-        avg_cpc: 1900
-        avg_cpm: 5000
+        avgCpc: 1900
+        avgCpm: 5000
         ctr: 0.1
     serpAd:
       value:
@@ -835,7 +887,7 @@ components:
             url: 'http://cdn.com/path/file.jpg'
             width: 90
             height: 90
-          placementType: ['serp0', 'serp1', 'serp2', 'mb_general']
+          placementType: ['serp', 'newtab']
           status: 1
           createdAt: '2018-03-01'
           timeStart: '2018-01-01'
@@ -958,10 +1010,12 @@ components:
           fields:
           - field: 'some field'
             value: 'some value'
-            option: 'some option'
+            type: 'string'
+            option: 'default'
           - field: 'some other field'
             value: 'some other value'
-            option: 'some other option'
+            type: 'string'
+            option: 'default'
           status: 1
           createdAt: '2018-03-01'
           timeStart: '2018-01-01'
@@ -985,10 +1039,12 @@ components:
           fields:
           - field: 'some field'
             value: 'some value'
-            option: 'some option'
+            type: 'string'
+            option: 'default'
           - field: 'some other field'
             value: 'some other value'
-            option: 'some other option'
+            type: 'string'
+            option: 'default'
           status: 1
           createdAt: '2018-03-01'
           timeStart: '2018-01-01'
@@ -1015,9 +1071,18 @@ components:
             url: 'http://cdn.com/path/file.jpg'
             width: 256
             height: 256
-          originalPrice: 2782000
-          salePrice: 1604000
+          oldPrice: 2782000
+          price: 1604000
           shopName: 'Super cool shop'
+          feed:
+            url: 'https://cool-shop.com/feed.json'
+            formal: 'json'
+            inSync: false
+            inModeration: false
+            lastErrorsCount: 0
+            createdAt: '2018-03-01 12:00:00'
+            updatedAt: '2018-03-10 12:00:00'
+            syncronizedAt: '2018-03-29 12:00:00'
           status: 1
           createdAt: '2018-03-01'
           timeStart: '2018-01-01'
@@ -1046,13 +1111,13 @@ components:
         campaignId: 1
         campaignName: 'Some Campaign Name'
         adId: 1
-        adName: 'Some Ad Name'
+        adTitle: 'Some Ad Name'
         id: 8
         type: 'phrase'
         stats:
           $ref: '#/components/examples/extendedStats/value'
         details:
-          phrase: 'some phrase'
+          value: 'some phrase'
           bid: 5000
           status: 1
           createdAt: '2018-01-01'
@@ -1064,13 +1129,13 @@ components:
         campaignId: 1
         campaignName: 'Some Campaign Name'
         adId: 1
-        adName: 'Some Ad Name'
+        adTitle: 'Some Ad Name'
         id: 8
         type: 'category'
         stats:
           $ref: '#/components/examples/extendedStats/value'
         details:
-          category: 123
+          value: 123
           bid: 5000
           status: 1
           createdAt: '2018-01-01'
@@ -1082,13 +1147,13 @@ components:
         campaignId: 1
         campaignName: 'Some Campaign Name'
         adId: 1
-        adName: 'Some Ad Name'
+        adTitle: 'Some Ad Name'
         id: 8
         type: 'demographic'
         stats:
           $ref: '#/components/examples/extendedStats/value'
         details:
-          category: 321
+          value: 321
           bid: 5000
           status: 1
           createdAt: '2018-01-01'
@@ -1100,13 +1165,13 @@ components:
         campaignId: 1
         campaignName: 'Some Campaign Name'
         adId: 1
-        adName: 'Some Ad Name'
+        adTitle: 'Some Ad Name'
         id: 8
-        type: 'custom_category'
+        type: 'customCategory'
         stats:
           $ref: '#/components/examples/extendedStats/value'
         details:
-          category: 321
+          value: 321
           bid: 5000
           status: 1
           createdAt: '2018-01-01'
