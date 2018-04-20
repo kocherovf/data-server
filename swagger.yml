@@ -736,7 +736,7 @@ components:
       - $ref: '#/components/schemas/simpleStats'
       - type: object
         properties:
-          avgPos:
+          avgPosition:
             type: number
             format: double
     media:
