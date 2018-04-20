@@ -535,6 +535,8 @@ components:
             format: int8
           geo:
             $ref: '#/components/schemas/geoTargeting'
+          feed:
+            $ref: '#/components/schemas/feed'
       - $ref: '#/components/schemas/timeTargeting'
     timeTargeting:
       type: object
@@ -559,6 +561,31 @@ components:
         status:
           type: integer
           format: int16
+    feed:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        format:
+          type: string
+          enum: ['json', 'xml']
+        inSync:
+          type: boolean
+        inModeration:
+          type: boolean
+        lastErrorsCount:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-date
+        updatedAt:
+          type: string
+          format: date-date
+        syncronizedAt:
+          type: string
+          format: date-date
     ad:
       type: object
       properties:
@@ -689,31 +716,6 @@ components:
             format: int64
           shopName:
             type: string
-          feed:
-            type: object
-            properties:
-              url:
-                type: string
-                format: uri
-              format:
-                type: string
-                enum: ['json', 'xml']
-              inSync:
-                type: boolean
-              inModeration:
-                type: boolean
-              lastErrorsCount:
-                type: integer
-                format: int32
-              createdAt:
-                type: string
-                format: date-date
-              updatedAt:
-                type: string
-                format: date-date
-              syncronizedAt:
-                type: string
-                format: date-date
     schedule:
       type: string
     bidLimit:
@@ -858,6 +860,16 @@ components:
         - 1
         - 2
         - 147
+    feed:
+      value:
+        url: 'http://feeds.com/feed.json'
+        format: 'json'
+        inSync: true,
+        inModeration: false
+        lastErrorsCount: 0
+        createdAt: '2018-03-01 12:00:00'
+        updatedAt: '2018-03-01 12:30:00'
+        syncronizedAt: '2018-03-01 12:35:00'
     simpleSystem:
       value:
         status: 145
@@ -1074,15 +1086,6 @@ components:
           oldPrice: 2782000
           price: 1604000
           shopName: 'Super cool shop'
-          feed:
-            url: 'https://cool-shop.com/feed.json'
-            formal: 'json'
-            inSync: false
-            inModeration: false
-            lastErrorsCount: 0
-            createdAt: '2018-03-01 12:00:00'
-            updatedAt: '2018-03-10 12:00:00'
-            syncronizedAt: '2018-03-29 12:00:00'
           status: 1
           createdAt: '2018-03-01'
           timeStart: '2018-01-01'
@@ -1177,4 +1180,3 @@ components:
           createdAt: '2018-01-01'
         system:
           $ref: '#/components/examples/extendedSystem/value'
-
